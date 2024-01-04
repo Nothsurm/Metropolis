@@ -63,9 +63,14 @@ const logoutUser = asyncHandler(async (req, res) => {
         expires: new Date(0),
     })
     res.status(200).json({message: 'logout successfull'})
+});
+
+const getAllUsers = asyncHandler(async (req, res) => {
+    const users = await User.find({})
+    res.json(users)
 })
 
 
 
-export { createUser, loginUser, logoutUser };
+export { createUser, loginUser, logoutUser, getAllUsers };
 
