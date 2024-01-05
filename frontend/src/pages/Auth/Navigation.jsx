@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import { useLoginMutation } from "../../redux/api/usersApiSlice.js";
 import { logout } from "../../redux/features/auth/authSlice.js";
+import { RiArrowDropDownLine } from "react-icons/ri";
 
 import './Navigation.css';
 
@@ -78,15 +79,51 @@ export default function Navigation() {
         </div>
 
         <div className="relative">
-            <button onClick={toggleDropdown} className="flex items-center text-gray-800 focus:outline-none">
+            <button onClick={toggleDropdown} className="flex text-gray-800 focus:outline-none">
                 {userInfo ? (
                     <span className="text-white">{userInfo.username}</span>
                     ) : (
                     <></>
                 )}
-            </button>
-        </div>
 
+                {userInfo && (
+                    <RiArrowDropDownLine size={28} className="text-white hover:text-slate-400"/>
+                )}
+            </button>
+
+            {dropdownOpen && userInfo && (
+                <ul className={`absolute right-0 mr-14 space-y-2 bg-zinc-900 text-white ${!userInfo.isAdmin ? '-top-20' : '-top-80'}`}>
+                    {userInfo.isAdmin && (
+                        <>
+                            <li>
+                                <Link to='/admin/dashboard' className="block px-4 py-2 hover:bg-zinc-800">Dashboard</Link>
+                            </li>
+                            <li>
+                                <Link to='/admin/productlist' className="block px-4 py-2 hover:bg-zinc-800">Products</Link>
+                            </li>
+                            <li>
+                                <Link to='/admin/categorylist' className="block px-4 py-2 hover:bg-zinc-800">Category</Link>
+                            </li>
+                            <li>
+                                <Link to='/admin/orderlist' className="block px-4 py-2 hover:bg-zinc-800">Orders</Link>
+                            </li>
+                            <li>
+                                <Link to='/admin/userlist' className="block px-4 py-2 hover:bg-zinc-800">Users</Link>
+                            </li>
+                        </>
+                    )}
+
+                    <li>
+                        <Link to='/admin/profile' className="block px-4 py-2 hover:bg-zinc-800">Profile</Link>
+                    </li>
+                    <li>
+                        <Link to='/admin/logout' onClick={logoutHandler} className="block px-4 py-2 hover:bg-zinc-800">Logout</Link>
+                    </li>
+                </ul>
+            )}
+        </div>
+        
+        {!userInfo && (
         <ul>
             <li>
                 <Link 
@@ -107,6 +144,8 @@ export default function Navigation() {
                 </Link>
             </li>
         </ul>
+        )}
+        
     </div>
   )
 }
