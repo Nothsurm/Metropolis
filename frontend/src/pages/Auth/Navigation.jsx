@@ -49,28 +49,28 @@ export default function Navigation() {
         <div className="flex flex-col justify-center space-y-4">
             <Link 
                 to='/' 
-                className="flex items-center transition-transform transform hover:translate-x-2"
+                className="flex items-center transition-transform transform hover:translate-x-2 hover:text-slate-400"
             >
                 <AiOutlineHome className="mr-2 mt-[3rem]" size={26}/>
                 <span className="hidden nav-item-name mt-[3rem]">HOME</span>
             </Link>
             <Link 
                 to='/shop' 
-                className="flex items-center transition-transform transform hover:translate-x-2"
+                className="flex items-center transition-transform transform hover:translate-x-2 hover:text-slate-400"
             >
                 <AiOutlineShopping className="mr-2 mt-[3rem]" size={26}/>
                 <span className="hidden nav-item-name mt-[3rem]">SHOP</span>
             </Link>
             <Link 
                 to='/cart' 
-                className="flex items-center transition-transform transform hover:translate-x-2"
+                className="flex items-center transition-transform transform hover:translate-x-2 hover:text-slate-400"
             >
                 <AiOutlineShoppingCart className="mr-2 mt-[3rem]" size={26}/>
                 <span className="hidden nav-item-name mt-[3rem]">CART</span>
             </Link>
             <Link 
                 to='/favourite' 
-                className="flex items-center transition-transform transform hover:translate-x-2"
+                className="flex items-center transition-transform transform hover:translate-x-2 hover:text-slate-400"
             >
                 <FaHeart className="mr-2 mt-[3rem]" size={26}/>
                 <span className="hidden nav-item-name mt-[3rem]">FAVOURITE</span>
@@ -91,7 +91,7 @@ export default function Navigation() {
             <li>
                 <Link 
                     to='/login' 
-                    className="flex items-center transition-transform transform hover:translate-x-2"
+                    className="flex items-center transition-transform transform hover:translate-x-2 hover:text-slate-400"
                 >
                     <AiOutlineLogin className="mr-2 mt-[3rem]" size={26}/>
                     <span className="hidden nav-item-name mt-[3rem]">LOGIN</span>
@@ -100,7 +100,7 @@ export default function Navigation() {
             <li>
                 <Link 
                     to='/register' 
-                    className="flex items-center transition-transform transform hover:translate-x-2"
+                    className="flex items-center transition-transform transform hover:translate-x-2 hover:text-slate-400"
                 >
                     <AiOutlineUserAdd className="mr-2 mt-[3rem]" size={26}/>
                     <span className="hidden nav-item-name mt-[3rem]">REGISTER</span>
