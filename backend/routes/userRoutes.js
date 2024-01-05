@@ -1,5 +1,5 @@
 import express from 'express';
-import { createUser, loginUser, logoutUser, getAllUsers } from '../controllers/userController.js';
+import { createUser, loginUser, logoutUser, getAllUsers, getCurrentUserProfile, updateCurrentUserProfile } from '../controllers/userController.js';
 import { authenticate, authorizedAdmin } from '../middlewares/authMiddleware.js';
 
 const router = express.Router()
@@ -8,6 +8,8 @@ router.route('/').post(createUser).get(authenticate, authorizedAdmin, getAllUser
 
 router.post('/auth', loginUser)
 router.post('/logout', logoutUser)
+
+router.route('/profile').get(authenticate, getCurrentUserProfile).put(authenticate, updateCurrentUserProfile)
 
 
 
