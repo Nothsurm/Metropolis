@@ -29,6 +29,7 @@ export default function UserList() {
         if (window.confirm('Are you sure?')) {
             try {
                 await deleteUser(id)
+                updateHandler()
             } catch (error) {
                 toast.error(error.data.message || error.error)
             }
