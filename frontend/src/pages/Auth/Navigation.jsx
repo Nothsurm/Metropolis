@@ -117,7 +117,7 @@ export default function Navigation() {
                         <Link to='/profile' className="block px-4 py-2 hover:bg-zinc-800">Profile</Link>
                     </li>
                     <li>
-                        <Link to='/logout' onClick={logoutHandler} className="block px-4 py-2 hover:bg-zinc-800">Logout</Link>
+                        <Link to='/login' onClick={logoutHandler} className="block px-4 py-2 hover:bg-zinc-800">Logout</Link>
                     </li>
                 </ul>
             )}

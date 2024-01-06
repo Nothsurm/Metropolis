@@ -162,5 +162,15 @@ const updateUserById = asyncHandler(async (req, res) => {
 
 
 
-export { createUser, loginUser, logoutUser, getAllUsers, getCurrentUserProfile, updateCurrentUserProfile, deleteUserById, getUserById, updateUserById };
+export { 
+    createUser, 
+    loginUser, 
+    logoutUser, 
+    getAllUsers, 
+    getCurrentUserProfile, 
+    updateCurrentUserProfile, 
+    deleteUserById, 
+    getUserById, 
+    updateUserById 
+};
 
