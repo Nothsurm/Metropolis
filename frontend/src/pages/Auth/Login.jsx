@@ -5,6 +5,7 @@ import { useLoginMutation } from "../../redux/api/usersApiSlice.js";
 import { setCredentials } from "../../redux/features/auth/authSlice.js";
 import { toast } from "react-toastify";
 import Loader from "../../components/Loader.jsx";
+import Image from '../../images/login-image.jpg';
 
 export default function Login() {
     const [email, setEmail] = useState('')
@@ -86,6 +87,7 @@ export default function Login() {
                     </p>
                 </div>
             </div>
+             <img src={Image} alt="person-on-computer" className="h-[57rem] w-[59%] xl:block md:hidden sm:hidden rounded-lg"/>
         </section>
     </div>
   )

@@ -5,6 +5,7 @@ import Loader from "../../components/Loader";
 import { setCredentials } from "../../redux/features/auth/authSlice.js";
 import { toast } from "react-toastify";
 import { useRegisterMutation } from "../../redux/api/usersApiSlice.js";
+import Image from '../../images/register-image.jpg';
 
 export default function Register() {
     const [username, setUsername] = useState('');
@@ -105,6 +106,7 @@ export default function Register() {
                 </p>
             </div>
         </div>
+        <img src={Image} alt="colourful-picture" className="h-[57rem] w-[59%] xl:block md:hidden sm:hidden rounded-lg"/>
     </section>
   )
 }
