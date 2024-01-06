@@ -53,6 +53,7 @@ export default function Login() {
                             type="email" 
                             id='email' 
                             className="mt-1 p-2 border rounded w-full bg-zinc-600" 
+                            placeholder="Enter your email..."
                             value={email} 
                             onChange={e => setEmail(e.target.value)}
                         />                     
@@ -62,7 +63,8 @@ export default function Login() {
                         <input 
                             type="password" 
                             id='password' 
-                            className="mt-1 p-2 border rounded w-full bg-zinc-600" 
+                            className="mt-1 p-2 border rounded w-full bg-zinc-600"
+                            placeholder="Enter your password..." 
                             value={password} 
                             onChange={e => setPassword(e.target.value)}
                         />
