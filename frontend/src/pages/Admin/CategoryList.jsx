@@ -74,9 +74,12 @@ const CategoryList = () => {
     }
   };
 
-  const handleDeleteCategory = async () => {
+  const handleDeleteCategory = async (e) => {
+    e.preventDefault()
+
     try {
       const result = await deleteCategory(selectedCategory._id).unwrap();
+      console.log(result)
 
       if (result.error) {
         toast.error(result.error);
@@ -84,6 +87,7 @@ const CategoryList = () => {
         toast.success(`${result.name} is deleted.`);
         setSelectedCategory(null);
         setModalVisible(false);
+        refetch();
       }
     } catch (error) {
       console.error(error);
