@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCreateCategoryMutation,
     useUpdateCategoryMutation,
     useDeleteCategoryMutation,
@@ -8,7 +8,7 @@ import CategoryForm from "../../components/CategoryForm.jsx";
 import Modal from "../../components/Modal.jsx";
 
 export default function CategoryList() {
-    const {data: categories} = useFetchCategoriesQuery()
+    const {data: categories, refetch} = useFetchCategoriesQuery()
     const [name, setName] = useState('')
     const [selectedCategory, setSelectedCategory] = useState(null)
     const [updatingName, setUpdatingName] = useState('')
@@ -33,6 +33,7 @@ export default function CategoryList() {
             } else {
                 setName('')
                 toast.success(`${result.name} is created`)
+                refetch()
             }
         } catch (error) {
             console.error(error)
@@ -62,11 +63,16 @@ export default function CategoryList() {
                 setSelectedCategory(null)
                 setUpdatingName('')
                 setModalVisible(false)
+                refetch()
             }
         } catch (error) {
             console.error(error)
         }
     }
+
+    useEffect(() => {
+        refetch()
+    }, [refetch]);
 
   return (
     <div className="ml-[10rem] flex flex-col md:flex-row">
