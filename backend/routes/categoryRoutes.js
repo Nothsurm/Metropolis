@@ -5,7 +5,8 @@ import { createCategory, updateCategory, removeCategory, listCategories, readCat
 const router = express.Router()
 
 router.route('/').post(authenticate, authorizedAdmin, createCategory);
-router.route('/:categoryId').put(authenticate, authorizedAdmin, updateCategory).delete(authenticate, authorizedAdmin, removeCategory).get(readCategory)
+router.route('/:categoryId').put(authenticate, authorizedAdmin, updateCategory).delete(authenticate, authorizedAdmin, removeCategory)
 router.route('/categories').get(listCategories)
+router.route('/:id').get(readCategory)
 
 export default router;

@@ -64,7 +64,7 @@ const listCategories = asyncHandler(async (req, res) => {
 
 const readCategory = asyncHandler(async (req, res) => {
     try {
-        const category = await Category.findOne({_id: req.params.categoryId})
+        const category = await Category.findOne({_id: req.params.id})
         res.json(category);
     } catch (error) {
         console.log(error)
