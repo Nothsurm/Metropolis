@@ -48,7 +48,7 @@ export default function AdminMenu() {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink className='list-item py-2 px-3  mb-5 hover:bg-[#2E2D2D] rounded-sm' to='/admin/allproducts' style={({isActive}) => ({
+                        <NavLink className='list-item py-2 px-3  mb-5 hover:bg-[#2E2D2D] rounded-sm' to='/admin/allproductslist' style={({isActive}) => ({
                             color: isActive ? 'greenyellow' : 'white'
                         })}>
                             All Products
@@ -65,7 +65,7 @@ export default function AdminMenu() {
                         <NavLink className='list-item py-2 px-3  mb-5 hover:bg-[#2E2D2D] rounded-sm' to='/admin/orderlist' style={({isActive}) => ({
                             color: isActive ? 'greenyellow' : 'white'
                         })}>
-                            manage Orders
+                            Manage Orders
                         </NavLink>
                     </li>
                 </ul>
