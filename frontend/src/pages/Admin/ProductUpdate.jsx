@@ -4,7 +4,7 @@ import {
     useUpdateProductMutation,
     useDeleteProductMutation,
     useGetProductByIdQuery,
-    useUpdateProductMutation
+    useUploadProductImageMutation,
 } from '../../redux/api/productApiSlice.js';
 import { useFetchCategoriesQuery } from "../../redux/api/categoryApiSlice.js";
 import { toast } from 'react-toastify';
@@ -20,6 +20,26 @@ export default function ProductUpdate() {
     const [category, setCategory] = useState(productData?.category || "");
     const [brand, setBrand] = useState(productData?.brand || "");
     const [stock, setStock] = useState(productData?.stock || "");
+    const [quantity, setQuantity] = useState(productData?.quantity || "");
+
+    const navigate = useNavigate()
+
+    const {data: categories = []} = useFetchCategoriesQuery();
+    const [uploadProductImage] = useUploadProductImageMutation();
+    const [updateProduct] = useUpdateProductMutation();
+    const [deleteProduct] = useDeleteProductMutation();
+
+    useEffect(() => {
+        if (productData && productData._id) {
+            setName(productData.name)
+            setDescription(productData.description)
+            setPrice(productData.price)
+            setCategory(productData.categories?._id)
+            setQuantity(productData.quantity)
+            setBrand(productData.brand)
+            setImage(productData.image)
+        }
+    }, [productData]);
   return (
     <div>ProductUpdate</div>
   )
