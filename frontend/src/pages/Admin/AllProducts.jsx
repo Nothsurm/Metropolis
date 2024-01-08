@@ -3,9 +3,10 @@ import moment from 'moment';
 import { useAllProductsQuery } from "../../redux/api/productApiSlice";
 import AdminMenu from "./AdminMenu";
 import Loader from "../../components/Loader";
+import { useEffect } from "react";
 
 export default function AllProducts() {
-    const {data: products, isLoading, isError} = useAllProductsQuery()
+    const {data: products, isLoading, refetch, isError} = useAllProductsQuery()
 
     if (isLoading) {
         return <Loader />
@@ -14,6 +15,10 @@ export default function AllProducts() {
     if (isError) {
         return <div>Error loading products</div>
     }
+
+    useEffect(() => {
+        refetch()
+    }, [refetch])
   return (
     <div className="container mx-[9rem]">
         <div className="flex flex-col md:flex-row">
