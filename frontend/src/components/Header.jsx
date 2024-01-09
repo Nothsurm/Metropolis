@@ -1,6 +1,7 @@
 import { useGetTopProductQuery } from "../redux/api/productApiSlice.js";
 import Loader from "./Loader.jsx";
 import SmallProduct from "../pages/Products/SmallProduct.jsx";
+import ProductCarousel from "../pages/Products/ProductCarousel.jsx";
 
 export default function Header() {
     const { data, isLoading, error } = useGetTopProductQuery();
@@ -25,6 +26,7 @@ export default function Header() {
                     ))}
                 </div>
             </div>
+            <ProductCarousel />
         </div>
     </>
   )
