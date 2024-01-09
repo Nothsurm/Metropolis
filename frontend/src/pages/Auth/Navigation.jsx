@@ -8,6 +8,7 @@ import { logout } from "../../redux/features/auth/authSlice.js";
 import { RiArrowDropDownLine } from "react-icons/ri";
 
 import './Navigation.css';
+import FavouritesCount from "../Products/FavouritesCount.jsx";
 
 export default function Navigation() {
     const { userInfo } = useSelector(state => state.auth)
@@ -74,7 +75,8 @@ export default function Navigation() {
                 className="flex items-center transition-transform transform hover:translate-x-2 hover:text-slate-400"
             >
                 <FaHeart className="mr-2 mt-[3rem]" size={26}/>
-                <span className="hidden nav-item-name mt-[3rem]">FAVOURITE</span>
+                <span className="hidden nav-item-name mt-[3rem]">FAVOURITES</span>
+                <FavouritesCount />
             </Link>
         </div>
 
