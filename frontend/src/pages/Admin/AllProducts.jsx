@@ -6,7 +6,7 @@ import Loader from "../../components/Loader";
 import { useEffect } from "react";
 
 export default function AllProducts() {
-    const {data: products, isLoading, refetch, isError} = useAllProductsQuery()
+    const {data: products, isLoading, isError} = useAllProductsQuery()
 
     if (isLoading) {
         return <Loader />
@@ -16,11 +16,6 @@ export default function AllProducts() {
         return <div>Error loading products</div>
     }
 
-    useEffect(() => {
-        refetch()
-    }, [refetch])
-
-    
   return (
     <div className="container mx-[9rem]">
         <div className="flex flex-col md:flex-row">

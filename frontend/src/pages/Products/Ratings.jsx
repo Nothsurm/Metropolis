@@ -5,6 +5,10 @@ export default function Ratings({value, text, color}) {
     const fullStars = Math.floor(value)
     const halfStars = value - fullStars > 0.5 ? 1 : 0
     const emptyStar = 5 - fullStars - halfStars
+
+    Ratings.defaultProps = {
+        color: "yellow-500"
+    }
   return (
     <div className="flex items-center">
         {[...Array(fullStars)].map((_, index) => (
@@ -16,9 +20,9 @@ export default function Ratings({value, text, color}) {
             <FaRegStar key={index} className={`text-${color} ml-1`} />
         ))}
 
-        <span className={`rating-text ml-{2rem} text-${color}`}>
+        <span className={`rating-text ml-[2rem] text-${color}`}>
             {text && text}
         </span>
     </div>
   )
-}
+};
