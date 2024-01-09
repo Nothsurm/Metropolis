@@ -8,6 +8,7 @@ import Message from "../../components/Message";
 import { FaBox, FaClock, FaShoppingCart, FaStar, FaStore } from 'react-icons/fa';
 import moment from "moment";
 import HeartIcon from "./HeartIcon";
+import Ratings from "./Ratings.jsx";
 
 export default function ProductDetails() {
     const { id: productId } = useParams()
@@ -68,7 +69,10 @@ export default function ProductDetails() {
                             </div>
                         </div>
                         <div className="flex justify-between flex-wrap">
-                            {/* Ratings*/}
+                            <Ratings 
+                                value={product.rating} 
+                                text={`${product.numReviews} reviews`}
+                            />
                         </div>
                     </div>
                 </div>
