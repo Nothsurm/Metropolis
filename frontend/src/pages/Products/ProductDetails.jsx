@@ -9,6 +9,7 @@ import { FaBox, FaClock, FaShoppingCart, FaStar, FaStore } from 'react-icons/fa'
 import moment from "moment";
 import HeartIcon from "./HeartIcon";
 import Ratings from "./Ratings.jsx";
+import ProductTabs from "./ProductTabs.jsx";
 
 export default function ProductDetails() {
     const { id: productId } = useParams()
@@ -22,6 +23,21 @@ export default function ProductDetails() {
     const { userInfo } = useSelector(state => state.auth)
 
     const [createReview, {isLoading: loadingProductReview}] = useCreateReviewMutation()
+
+    const submitHandler = async (e) => {
+        e.preventDefault();
+
+        try {
+            await createReview({
+                productId,rating,comment
+            }).unwrap()
+            refetch()
+            toast.success('Review created successfully')
+        } catch (error) {
+            toast.error(error?.data?.message || error.message)
+        }
+    }
+
   return (
     <>
         <div>
@@ -100,7 +116,16 @@ export default function ProductDetails() {
                         </div>
                     </div>
                     <div className="mt-[5rem] container flex flex-wrap items-start justify-between ml-[10rem]">
-                        {}
+                        <ProductTabs 
+                            loadingProductReview={loadingProductReview} 
+                            userInfo={userInfo} 
+                            submitHandler={submitHandler}
+                            rating={rating}
+                            setRating={setRating}
+                            comment={comment}
+                            setComment={setComment}
+                            product={product}
+                        />
                     </div>
                 </div>
             </>
