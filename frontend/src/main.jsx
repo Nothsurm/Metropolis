@@ -20,10 +20,9 @@ import UserList from './pages/Admin/UserList.jsx';
 import ProductList from './pages/Admin/ProductList.jsx';
 import ProductUpdate from './pages/Admin/ProductUpdate.jsx';
 import AllProducts from './pages/Admin/AllProducts.jsx';
-
-//Category
 import CategoryList from './pages/Admin/CategoryList.jsx';
 import Home from './Home.jsx';
+import Favourites from './pages/Products/Favourites.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,6 +30,7 @@ const router = createBrowserRouter(
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
       <Route index={true} path='/' element={<Home />} />
+      <Route path='/favourite' element={<Favourites />} />
 
       <Route path='' element={<PrivateRoute />}>
         <Route path='/profile' element={<Profile />}/>
