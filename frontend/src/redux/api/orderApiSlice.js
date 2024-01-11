@@ -3,7 +3,7 @@ import { ORDERS_URL, PAYPAL_URL } from '../features/constants';
 
 export const orderApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
-        createorder: builder.mutation({
+        createOrder: builder.mutation({
             query: (order) => ({
                 url: ORDERS_URL,
                 method: 'POST',
@@ -69,7 +69,7 @@ export const {
     useGetTotalOrdersQuery,
     useGetTotalSalesQuery,
     useGetTotalSalesByDateQuery,
-    useCreateorderMutation,
+    useCreateOrderMutation,
     useGetOrderDetailsQuery,
     usePayOrderMutation,
     useGetPaypalClientIdQuery,
