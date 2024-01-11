@@ -17,6 +17,14 @@ export default function Shipping() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
+    const submitHandler = (e) => {
+        e.preventDefault()
+
+        dispatch(saveShippingAddress({address, city, postalCode, country}))
+        dispatch(savePaymentMethod(paymentMethod))
+        navigate('/place-order')
+    }
+
     // Payment
     useEffect(() => {
         if (!shippingAddress.address) {
@@ -27,7 +35,7 @@ export default function Shipping() {
     <div className="container mx-auto mt-10">
         <ProgressSteps step1 step2 />
         <div className="mt-[10rem] flex justify-around items-center flex-wrap">
-            <form className="w-[40rem]">
+            <form onSubmit={submitHandler} className="w-[40rem]">
                 <h1 className="text-2xl font-semibold mb-4">Shipping</h1>
                 <div className="mb-4">
                     <label className="block mb-2">Address</label>
