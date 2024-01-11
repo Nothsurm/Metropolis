@@ -30,6 +30,10 @@ app.use('/api/products', productRoutes)
 app.use('/api/upload', uploadRoutes)
 app.use('/api/orders', orderRoutes)
 
+app.get('/api/config/paypal', (req, res) => {
+    res.send({clientId: process.env.VITE_PAYPAL_CLIENT_ID})
+})
+
 const __dirname = path.resolve()
 app.use('/uploads', express.static(path.join(__dirname + '/uploads')))
 
