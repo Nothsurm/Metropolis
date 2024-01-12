@@ -80,6 +80,18 @@ export default function NavigationResponsive() {
                 <FavouritesCount />
             </Link>
 
+            <button onClick={toggleDropdown} className="flex items-center text-gray-800 focus:outline-none">
+                {userInfo ? (
+                    <span className="text-white">{userInfo.username}</span>
+                    ) : (
+                    <></>
+                )}
+
+                {userInfo && (
+                    <RiArrowDropDownLine size={28} className="text-white hover:text-slate-400"/>
+                )}
+            </button>
+
             {!userInfo && (
                 <>
                     <Link 
