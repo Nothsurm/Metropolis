@@ -1,0 +1,17 @@
+@media screen and (max-width: 640px) {
+    .image-hide {
+        display: none;
+    }
+    .sign-in-container {
+        width: 30rem;
+    }
+}
+
+@media screen and (max-width: 495px) {
+    .image-hide {
+        display: none;
+    }
+    .sign-in-container {
+        width: 15rem;
+    }
+}

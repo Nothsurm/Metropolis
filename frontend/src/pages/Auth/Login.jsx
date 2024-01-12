@@ -6,6 +6,7 @@ import { setCredentials } from "../../redux/features/auth/authSlice.js";
 import { toast } from "react-toastify";
 import Loader from "../../components/Loader.jsx";
 import Image from '../../images/login-image.jpg';
+import './Login.css'
 
 export default function Login() {
     const [email, setEmail] = useState('')
@@ -33,21 +34,18 @@ export default function Login() {
 
         try {
             const res = await login({email, password}).unwrap()
-            console.log(res)
             dispatch(setCredentials({...res}))
         } catch (error) {
             toast.error(error?.data?.message || error.message)
         }
     }
 
-    document.body.style.backgroundColor = 'rgb(16,16,16)'
-
   return (
     <div>
-        <section className="pl-[10rem] flex flex-wrap text-white">
-            <div className="mr-[4rem] mt-[5rem]">
+        <section className="lg:pl-[7rem] sm:pl-[1rem] flex justify-between flex-wrap text-white">
+            <div className="mt-[5rem] lg:w-1/3 sm:w-full sign-in-container">
                 <h1 className="text-2xl font-semibold mb-4">Sign In</h1>
-                <form onSubmit={submitHandler} className="container w-[40rem]">
+                <form onSubmit={submitHandler} className="container w-full">
                     <div className="my-[2rem]">
                         <label htmlFor="email" className="block text-sm font-medium">Email Address</label>
                         <input 
@@ -87,7 +85,7 @@ export default function Login() {
                     </p>
                 </div>
             </div>
-             <img src={Image} alt="person-on-computer" className="h-[57rem] w-[59%] xl:block md:hidden sm:hidden rounded-lg"/>
+            <img src={Image} alt="person-on-computer" className="xl:mt-[0rem] sm:mt-[5rem] image-hide xl:h-[55rem] mr-[1rem] w-[59%] lg:block md:hidden sm:hidden rounded-lg"/>
         </section>
     </div>
   )
