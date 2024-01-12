@@ -43,8 +43,9 @@ export default function NavigationResponsive() {
     <div 
         style={{zIndex: 999}} 
         className='w-[100%] min-h-20 fixed xl:hidden sm:flex sm:items-center bg-black'
+        id='navigation-responsive'
     >
-        <div className="flex flex-row justify-around w-[100%] sm:hidden md:flex" id='navigation-responsive'>
+        <div className="flex flex-row justify-around w-[100%] sm:hidden md:flex" id='remove-items'>
             <Link 
                 to='/' 
                 className="flex items-center hover:text-slate-400"
@@ -113,10 +114,19 @@ export default function NavigationResponsive() {
         {userInfo ? (
             <div className="relative flex justify-around w-full md:hidden">
                 <div className="flex items-center">
-                    <button onClick={toggleMenu}>
-                        <div className="w-6 h-1 bg-gray-200 my-1"></div>
-                        <div className="w-6 h-1 bg-gray-200 my-1"></div>
-                        <div className="w-6 h-1 bg-gray-200 my-1"></div>
+                    <button 
+                        onClick={toggleMenu}
+                        className={`${isMenuOpen ? 'top-2 left-15' : 'top-5 left-15'} bg-[#151515] p-2 fixed rounded-lg`}
+                    >
+                        {isMenuOpen ? (
+                            <FaTimes color='white' />
+                        ) : (
+                            <>
+                                <div className="w-6 h-1 bg-gray-200 my-1"></div>
+                                <div className="w-6 h-1 bg-gray-200 my-1"></div>
+                                <div className="w-6 h-1 bg-gray-200 my-1"></div>
+                            </>
+                        )}
                     </button>
                 </div>
                 <button onClick={toggleDropdown} className="flex items-center text-gray-800 focus:outline-none ">
@@ -138,10 +148,19 @@ export default function NavigationResponsive() {
         {!userInfo ? (
             <div className="relative flex justify-around w-full md:hidden">
                 <div className="flex items-center">
-                    <button onClick={toggleMenu}>
-                        <div className="w-6 h-1 bg-gray-200 my-1"></div>
-                        <div className="w-6 h-1 bg-gray-200 my-1"></div>
-                        <div className="w-6 h-1 bg-gray-200 my-1"></div>
+                    <button 
+                        onClick={toggleMenu}
+                        className={`${isMenuOpen ? 'top-2 left-15' : 'top-5 left-15'} bg-[#151515] p-2 fixed rounded-lg`}
+                    >
+                        {isMenuOpen ? (
+                            <FaTimes color='white' />
+                        ) : (
+                            <>
+                                <div className="w-6 h-1 bg-gray-200 my-1"></div>
+                                <div className="w-6 h-1 bg-gray-200 my-1"></div>
+                                <div className="w-6 h-1 bg-gray-200 my-1"></div>
+                            </>
+                        )}
                     </button>
                 </div>
                 <button onClick={toggleDropdown} className="flex items-center text-gray-800 focus:outline-none">

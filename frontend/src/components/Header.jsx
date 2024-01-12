@@ -16,9 +16,9 @@ export default function Header() {
 
   return (
     <>
-        <div className="flex justify-around">
-            <div className="xl:block lg:hidden md:hidden sm:hidden">
-                <div className="grid grid-cols-2">
+        <div className="flex justify-around flex-wrap">
+            <div className="xl:block lg:block md:hidden sm:hidden">
+                <div className="grid grid-cols-2" id='small-products'>
                     {data.map((product) => (
                         <div key={product._id}>
                             <SmallProduct product={product} />

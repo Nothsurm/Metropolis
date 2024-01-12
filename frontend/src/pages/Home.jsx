@@ -15,11 +15,11 @@ export default function Home() {
           {isError?.data.message || isError.error}
         </Message>) : (
           <>
-            <div className="flex justify-between items-center">
-              <h1 className="ml-[20rem] mt-[10rem] text-[3rem]">
+            <div className="flex justify-around items-center text-center flex-wrap">
+              <h1 className="mt-[5rem] text-[3rem]">
                 Special Products
               </h1>
-              <Link to='/shop' className="bg-pink-600 font-bold rounded-full py-2 px-10 mr-[18rem] mt-[10rem]">
+              <Link to='/shop' className="bg-pink-600 font-bold rounded-full py-2 px-10 mt-[5rem]">
                 Shop
               </Link>
             </div>
