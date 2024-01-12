@@ -7,7 +7,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { useLogoutMutation } from "../../redux/api/usersApiSlice.js";
 import { logout } from "../../redux/features/auth/authSlice.js";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import FavouritesCount from "../Products/FavouritesCount.jsx";
 import './NavigationResponsive.css';
 
 export default function NavigationResponsive() {
@@ -63,22 +62,12 @@ export default function NavigationResponsive() {
                 className="flex items-center hover:text-slate-400"
             >
                 <span className="">CART</span>
-                <div className="absolute top-9 left-3">
-                    {cartItems.length> 0 && (
-                        <span>
-                            <span className="px-1 py-0 text-sm text-white bg-pink-500 rounded-full">
-                                {cartItems.reduce((acc, item) => acc + item.qty, 0)}
-                            </span>
-                        </span>
-                    )}
-                </div>
             </Link>
             <Link 
                 to='/favourite' 
                 className="flex items-center hover:text-slate-400"
             >
                 <span className="">FAVOURITES</span>
-                <FavouritesCount />
             </Link>
 
             <button onClick={toggleDropdown} className="flex items-center text-gray-800 focus:outline-none">
@@ -251,15 +240,6 @@ export default function NavigationResponsive() {
                         className="flex items-center hover:text-slate-400"
                     >
                         <span className="">CART</span>
-                        <div className="absolute top-9 left-3">
-                            {cartItems.length> 0 && (
-                                <span>
-                                    <span className="px-1 py-0 text-sm text-white bg-pink-500 rounded-full">
-                                        {cartItems.reduce((acc, item) => acc + item.qty, 0)}
-                                    </span>
-                                </span>
-                            )}
-                        </div>
                     </Link>
                     </li>
                     <li>
@@ -268,7 +248,6 @@ export default function NavigationResponsive() {
                             className="flex items-center transition-transform transform hover:translate-x-2 hover:text-slate-400"
                         >
                             <span className="">FAVOURITES</span>
-                            <FavouritesCount />
                         </Link>
                     </li>
                 </ul>

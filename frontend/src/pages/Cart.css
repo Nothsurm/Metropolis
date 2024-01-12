@@ -1,0 +1,6 @@
+@media screen and (max-width: 640px) {
+    #container-cart {
+        width: 95%;
+        align-items: center;
+    }
+}

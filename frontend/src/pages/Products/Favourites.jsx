@@ -6,7 +6,7 @@ export default function Favourites() {
     const favourites = useSelector(selectFavouriteProduct)
 
   return (
-    <div className="ml-[10rem]">
+    <div className="mt-20 md:ml-[10rem] sm:ml-[0rem]">
         <h1 className="text-xl font-bold ml-[3rem] mt-[3rem]">
             FAVOURITE PRODUCTS
         </h1>

@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { FaTrash } from "react-icons/fa";
 import { addToCart, removeFromCart } from "../redux/features/cart/cartSlice.js";
+import './Cart.css'
 
 export default function Cart() {
   const navigate = useNavigate()
@@ -24,7 +25,7 @@ export default function Cart() {
 
   return (
     <>
-      <div className="container flex justify-around items-start flex-wrap mx-auto mt-8">
+      <div className="container flex justify-around items-start flex-wrap mx-auto mt-20">
         {cartItems.length === 0 ? (
           <div className="flex flex-col text-center">
             <p>Your cart is empty</p>
@@ -32,7 +33,7 @@ export default function Cart() {
           </div>
         ) : (
           <>
-            <div className="flex flex-col w-[80%]">
+            <div className="flex flex-col flex-wrap w-[80%]" id='container-cart'>
               <h1 className="text-2xl font-semibold mb-4">Shopping Cart</h1>
               {cartItems.map((item) => (
                 <div key={item._id} className="flex items-center mb-[1rem] pb-2">
@@ -71,7 +72,7 @@ export default function Cart() {
                 </div>
               ))}
 
-                <div className="mt-8 w-[40rem]">
+                <div className="mt-8 w-full">
                   <div className="p-4 rounded-lg">
                     <h2 className="text-xl font-semibold">
                       Items ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
@@ -80,7 +81,7 @@ export default function Cart() {
                       $ {cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)}
                     </div>
                     <button 
-                      className="bg-pink-500 mt-4 py-2 px-4 rounded-full text-lg w-full" 
+                      className="bg-pink-500 mt-4 py-2 px-4 rounded-full text-lg md:w-full sm:w-[20rem]" 
                       disabled={cartItems.length === 0}
                       onClick={checkoutHandler}
                     >
