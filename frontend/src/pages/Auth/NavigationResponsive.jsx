@@ -163,12 +163,12 @@ export default function NavigationResponsive() {
         )}
         
         {dropdownOpen && userInfo && (
-            <div className="relative flex justify-around w-full">
-                <ul className={`absolute right-0 top-10 mr-14 space-y-2 bg-zinc-900 text-white`}>
+            <div>
+                <ul className={`absolute right-10 top-10 space-y-2 bg-zinc-900 text-white`}>
                     {userInfo.isAdmin && (
                         <>
                             <li>
-                                <Link to='/admin/dashboard' className="block px-4 py-2 hover:bg-zinc-800">Dashboard</Link>
+                                <Link to='/admin/dashboard' className="px-4 py-2 hover:bg-zinc-800">Dashboard</Link>
                             </li>
                             <li>
                                 <Link to='/admin/productlist' className="block px-4 py-2 hover:bg-zinc-800">Products</Link>
@@ -184,7 +184,6 @@ export default function NavigationResponsive() {
                             </li>
                         </>
                     )}
-
                     <li>
                         <Link to='/profile' className="block px-4 py-2 hover:bg-zinc-800">Profile</Link>
                     </li>
