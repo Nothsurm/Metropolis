@@ -1,0 +1,33 @@
+@media screen and (max-width: 880px) {
+    .id-hide {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 690px) {
+    .date-hide {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .total-hide {
+        display: none;
+    }
+
+    .container {
+        font-size: small;
+    }
+}
+
+@media screen and (min-width: 491px) {
+    .smaller-screen-size {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .larger-screen-size {
+        display: none;
+    }
+}

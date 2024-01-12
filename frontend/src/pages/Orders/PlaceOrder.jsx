@@ -7,13 +7,14 @@ import ProgressSteps from "../../components/ProgressSteps";
 import Loader from "../../components/Loader";
 import { useCreateOrderMutation } from "../../redux/api/orderApiSlice";
 import { clearCartItems } from "../../redux/features/cart/cartSlice";
+import './PlaceOrder.css'
 
 export default function PlaceOrder() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const cart = useSelector((state) => state.cart)
     const [createOrder, {isLoading, error}] = useCreateOrderMutation();
-
+    
     useEffect(() => {
         if (!cart.shippingAddress.address) {
             navigate('/shipping')
@@ -51,9 +52,9 @@ export default function PlaceOrder() {
                         <thead>
                             <tr>
                                 <td className="px-1 py-2 text-left align-top">Image</td>
-                                <td className="px-1 py-2 text-left ">Product</td>
-                                <td className="px-1 py-2 text-left ">Quantity</td>
-                                <td className="px-1 py-2 text-left ">Price</td>
+                                <td className="px-1 py-2 text-left">Product</td>
+                                <td className="px-1 py-2 text-left quantity-hide">Quantity</td>
+                                <td className="px-1 py-2 text-left price-hide">Price</td>
                                 <td className="px-1 py-2 text-left ">Total</td>
                             </tr>
                         </thead>
@@ -70,8 +71,8 @@ export default function PlaceOrder() {
                                     <td className="p-2">
                                         <Link to={`/product/${item.product}`}>{item.name}</Link>
                                     </td>
-                                    <td className="p-2">{item.qty}</td>
-                                    <td className="p-2">{(item.price).toFixed(2)}</td>
+                                    <td className="p-2 quantity-hide">{item.qty}</td>
+                                    <td className="p-2 price-hide">{(item.price).toFixed(2)}</td>
                                     <td className="p-2">$ {(item.qty * item.price).toFixed(2)}</td>
                                 </tr>
                             ))}                         

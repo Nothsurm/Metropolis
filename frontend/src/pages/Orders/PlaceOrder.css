@@ -1,0 +1,9 @@
+@media screen and (max-width: 640px) {
+    .quantity-hide {
+        display: none;
+    }
+
+    .price-hide {
+        display: none;
+    }
+}

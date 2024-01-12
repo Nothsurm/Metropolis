@@ -11,6 +11,7 @@ import {
     useGetPaypalClientIdQuery, 
     usePayOrderMutation 
 } from "../../redux/api/orderApiSlice";
+import './Order.css'
 
 export default function Order() {
     const {id: orderId} = useParams()
@@ -69,14 +70,14 @@ export default function Order() {
         toast.error(err.message)
     };
 
-    const deliverhandler = async () => {
+    const deliverHandler = async () => {
         await deliverOrder(orderId)
         refetch()
     }
 
   return (
     isLoading ? (<Loader />) : error ? (<Message variant='danger'>{error.data.message}</Message>) : (
-        <div className="container flex flex-col ml-[10rem] md:flex-row">
+        <div className="container flex flex-col flex-wrap xl:ml-[10rem] sm:ml-[1rem] md:flex-row mt-20">
             <div className="md:w-2/3 pr-4">
                 <div className="border gray-300 mt-5 pb-4 mb-5">
                     {order.orderItems.length === 0 ? (
@@ -89,7 +90,7 @@ export default function Order() {
                                         <th className="p-2">Image</th>
                                         <th className="p-2">Product</th>
                                         <th className="p-2">Quantity</th>
-                                        <th className="p-2">Unit Price</th>
+                                        <th className="p-2 unit-price-hide">Unit Price</th>
                                         <th className="p-2">Total</th>
                                     </tr>
                                 </thead>
@@ -108,7 +109,7 @@ export default function Order() {
                                             <td>
                                                 {item.qty}
                                             </td>
-                                            <td>
+                                            <td className="unit-price-hide">
                                                 $ {item.price}
                                             </td>
                                             <td>
@@ -147,25 +148,27 @@ export default function Order() {
                         <Message variant='danger'>Not paid</Message>
                     )}
                 </div>
-                <h2 className="text-xl font-bold mb-2 mt-[3rem]">Order Summary</h2>
-                <div className="flex justify-between mb-2">
-                    <span>Items</span>
-                    <span>$ {order.itemsPrice}</span>
-                </div>
-                <div className="flex justify-between mb-2">
-                    <span>Shipping</span>
-                    <span>$ {order.shippingPrice}</span>
-                </div>
-                <div className="flex justify-between mb-2">
-                    <span>Tax</span>
-                    <span>$ {order.taxPrice}</span>
-                </div>
-                <div className="flex justify-between mb-2">
-                    <span>Total</span>
-                    <span>$ {order.totalPrice}</span>
+                <div className="mr-[1rem]">
+                    <h2 className="text-xl font-bold mb-2 mt-[3rem]">Order Summary</h2>
+                    <div className="flex justify-between mb-2">
+                        <span>Items</span>
+                        <span>$ {order.itemsPrice}</span>
+                    </div>
+                    <div className="flex justify-between mb-2">
+                        <span>Shipping</span>
+                        <span>$ {order.shippingPrice}</span>
+                    </div>
+                    <div className="flex justify-between mb-2">
+                        <span>Tax</span>
+                        <span>$ {order.taxPrice}</span>
+                    </div>
+                    <div className="flex justify-between mb-2">
+                        <span>Total</span>
+                        <span>$ {order.totalPrice}</span>
+                    </div>
                 </div>
                 {!order.isPaid && (
-                    <div>
+                    <div className="mr-[1rem]">
                         {loadingPay && <Loader />}
                         {isPending ? (<Loader />) : (
                             <div>
@@ -188,7 +191,7 @@ export default function Order() {
                         <button 
                             type='button' 
                             className="bg-pink-500 w-full py-2"
-                            onClick={deliverhandler}
+                            onClick={deliverHandler}
                         >
                             Mark As Delivered
                         </button>
