@@ -14,18 +14,9 @@ export default function Navigation() {
     const { userInfo } = useSelector((state) => state.auth)
     const { cartItems } = useSelector((state) => state.cart)
     const [dropdownOpen, setDropdownOpen] = useState(false)
-    const [showSidebar, setShowSidebar] = useState(false)
 
     const toggleDropdown = () => {
         setDropdownOpen(!dropdownOpen)
-    };
-
-    const toggleSidebar = () => {
-        setShowSidebar(!showSidebar)
-    };
-
-    const closeSidebar = () => {
-        setShowSidebar(false)
     };
 
     const dispatch = useDispatch()
@@ -46,7 +37,7 @@ export default function Navigation() {
   return (
     <div 
         style={{zIndex: 999}} 
-        className={`${showSidebar ? "hidden" : 'flex'} xl:flex lg:flex md:hidden sm:hidden flex-col justify-between p-4 text-white bg-black w-[4%] hover:w-[15%] h-[100vh] fixed`}
+        className='xl:flex sm:hidden flex-col justify-between p-4 text-white bg-black w-[4%] h-[100vh] fixed'
         id="navigation-container"
     >
         <div className="flex flex-col justify-center space-y-4">

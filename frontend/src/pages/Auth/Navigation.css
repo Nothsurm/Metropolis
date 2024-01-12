@@ -17,3 +17,9 @@
     display: block;
     opacity: 1;
 }
+
+@media screen and (max-width: 640px) {
+    #navigation-container {
+        display: none;
+    }
+}
