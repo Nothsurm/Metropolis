@@ -5,6 +5,7 @@ import { setCategories, setProducts, setChecked } from "../redux/features/shop/s
 import { useFetchCategoriesQuery } from "../redux/api/categoryApiSlice.js";
 import Loader from "../components/Loader.jsx";
 import ProductCard from "./Products/ProductCard.jsx";
+import './Shop.css'
 
 export default function Shop() {
     const dispatch = useDispatch();
@@ -64,8 +65,8 @@ export default function Shop() {
 return (
     <>
         <div className="container mx-auto">
-            <div className="flex md:flex-row">
-                <div className="bg-[#151515] p-3 mt-2 mb-2">
+            <div className="flex md:flex-row sm:mt-16 xl:mt-0"  id='container'>
+                <div className="bg-[#151515] p-3 mt-2 mb-2" id='filter-container'>
                     <h2 className="text-center py-2 bg-black rounded-full mb-2">Filter by Categories</h2>
                     <div className="p-5 w-[15rem]">
                         {categories?.map((c) => (
@@ -125,8 +126,8 @@ return (
                     </div>
                 </div>
                 <div className="p-3">
-                    <h2 className="text-center mb-2">
-                        {products?.length} Products
+                    <h2 className="text-center text-bold text-3xl mb-2">
+                        Products ({products?.length})
                     </h2>
                     <div className="flex flex-wrap">
                         {products.length === 0 ? (
