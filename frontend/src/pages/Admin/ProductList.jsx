@@ -152,7 +152,12 @@ export default function ProductList() {
                         </div>
                         <div>
                             <label htmlFor="">Category</label> <br />
-                            <select placeholder='Choose Category' className="p-4 mb-3 w-[30rem] border rounded-lg bg-[#101011] text-white" onChange={(e) => setCategory(e.target.value)}>
+                            <select 
+                                placeholder='Choose Category' 
+                                className="p-4 mb-3 w-[30rem] border rounded-lg bg-[#101011] text-white" 
+                                onChange={(e) => setCategory(e.target.value)}
+                            >
+                                <option value='' disabled>Please choose an option...</option>
                                 {categories?.map((c) => (
                                     <option key={c._id} value={c._id}>
                                         {c.name}

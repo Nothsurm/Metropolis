@@ -9,7 +9,7 @@ export default function Home() {
     const {keyword} = useParams()
     const {data, isLoading, isError} = useGetProductsQuery({keyword})
   return (
-    <div className="mt-20">
+    <div className="mt-28">
         {!keyword ? <Header /> : null}
         {isLoading ? (<Loader />) : isError ? (<Message variant='danger'>
           {isError?.data.message || isError.error}

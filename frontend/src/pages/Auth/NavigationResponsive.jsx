@@ -42,7 +42,7 @@ export default function NavigationResponsive() {
   return (
     <div 
         style={{zIndex: 999}} 
-        className='w-[100%] min-h-20 fixed xl:hidden sm:flex'
+        className='w-[100%] min-h-20 fixed xl:hidden sm:flex sm:items-center bg-black'
     >
         <div className="flex flex-row justify-around w-[100%] sm:hidden md:flex" id='navigation-responsive'>
             <Link 
@@ -99,15 +99,15 @@ export default function NavigationResponsive() {
         </div>
 
         {userInfo ? (
-            <div className="relative flex justify-around w-full">
-                <div className="md:hidden">
+            <div className="relative flex justify-around w-full md:hidden">
+                <div className="flex items-center">
                     <button onClick={toggleMenu}>
                         <div className="w-6 h-1 bg-gray-200 my-1"></div>
                         <div className="w-6 h-1 bg-gray-200 my-1"></div>
                         <div className="w-6 h-1 bg-gray-200 my-1"></div>
                     </button>
                 </div>
-                <button onClick={toggleDropdown} className="flex text-gray-800 focus:outline-none">
+                <button onClick={toggleDropdown} className="flex items-center text-gray-800 focus:outline-none ">
                     {userInfo ? (
                         <span className="text-white">{userInfo.username}</span>
                         ) : (
@@ -125,14 +125,14 @@ export default function NavigationResponsive() {
 
         {!userInfo ? (
             <div className="relative flex justify-around w-full md:hidden">
-                <div className=" flex items-center">
+                <div className="flex items-center">
                     <button onClick={toggleMenu}>
                         <div className="w-6 h-1 bg-gray-200 my-1"></div>
                         <div className="w-6 h-1 bg-gray-200 my-1"></div>
                         <div className="w-6 h-1 bg-gray-200 my-1"></div>
                     </button>
                 </div>
-                <button onClick={toggleDropdown} className="flex text-gray-800 focus:outline-none">
+                <button onClick={toggleDropdown} className="flex items-center text-gray-800 focus:outline-none">
                     {userInfo ? (
                         <span className="text-white">{userInfo.username}</span>
                         ) : (
@@ -164,7 +164,7 @@ export default function NavigationResponsive() {
         
         {dropdownOpen && userInfo && (
             <div>
-                <ul className={`absolute right-10 top-10 space-y-2 bg-zinc-900 text-white`}>
+                <ul className={`absolute right-10 top-14 space-y-2 bg-zinc-900 text-white`}>
                     {userInfo.isAdmin && (
                         <>
                             <li>
