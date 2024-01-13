@@ -4,6 +4,7 @@ import { useAllProductsQuery } from "../../redux/api/productApiSlice";
 import AdminMenu from "./AdminMenu";
 import Loader from "../../components/Loader";
 import { useEffect } from "react";
+import './Admin.css'
 
 export default function AllProducts() {
     const {data: products, isLoading, isError} = useAllProductsQuery()
@@ -17,13 +18,13 @@ export default function AllProducts() {
     }
 
   return (
-    <div className="container mx-[9rem]">
-        <div className="flex flex-col md:flex-row">
+    <div className="container xl:mx-[9rem] mt-20">
+        <div className="flex flex-col flex-wrap">
             <div className="p-3">
-                <div className="ml-[2rem] text-xl font-bold h-12">
+                <div className="xl:ml-[2rem] sm:ml=[0rem] text-xl font-bold h-12">
                     All Products ({products.length})
                 </div>
-                <div className="flex flex-wrap justify-around items-center">
+                <div className="flex flex-wrap xl:justify-around sm:justify-start">
                     {products.map((product) => (
                         <Link 
                             key={product._id} 
@@ -38,14 +39,14 @@ export default function AllProducts() {
                                 />
                                 <div className="p-4 flex flex-col justify-around">
                                     <div className="flex justify-between">
-                                        <h5 className="text-xl font-semibold mb-2">
+                                        <h5 className="sm:text-xl font-semibold mb-2">
                                             {product?.name}
                                         </h5>
-                                        <p className="text-gray-400 text-sm">
+                                        <p className="text-gray-400 text-sm product-small-screen-size">
                                             {moment(product.createAt).format('MMMM Do YYYY')}
                                         </p>
                                     </div>
-                                    <p className="text-gray-400 xl:w-[30rem] md:w-[20rem] sm:w-[10rem] text-sm mb-4">
+                                    <p className="text-gray-400 xl:w-[30rem] text-sm mb-4 product-small-screen-size">
                                         {product?.description?.substring(0, 160)}...
                                     </p>
                                     <div className="flex justify-between">
@@ -55,7 +56,7 @@ export default function AllProducts() {
                                         >
                                             Update Product
                                         </Link>
-                                        <p>$ {product?.price}</p>
+                                        <p className="product-small-screen-size">$ {product?.price}</p>
                                     </div>
                                 </div>
                             </div>

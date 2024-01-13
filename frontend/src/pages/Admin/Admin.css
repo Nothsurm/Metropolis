@@ -13,6 +13,9 @@
     }
     .dashboard-container {
         width: 30rem;
+    } 
+    .product-small-screen-size {
+        display: none;
     }
 }
 
