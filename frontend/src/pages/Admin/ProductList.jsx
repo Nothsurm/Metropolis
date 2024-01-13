@@ -67,10 +67,10 @@ export default function ProductList() {
     };
 
   return (
-    <div className="container xl:mx-[9rem] sm:mx-[0]">
-        <div className="flex flex-col md:flex-row">
+    <div className="container mt-20 xl:mx-[9rem] sm:mx-[0]">
+        <div className="flex flex-col flex-wrap justify-between">
             <AdminMenu />
-            <div className="md:w-3/4 p-3">
+            <div className="md:full p-3">
                 <h2 className="h-12">Create Product</h2>
                 {imageUrl && (
                     <div className="text-center">
@@ -92,7 +92,7 @@ export default function ProductList() {
                 </div>
 
                 <div className="p-3">
-                    <div className="flex flex-wrap">
+                    <div className="flex flex-wrap justify-start gap-2">
                         <div className="one">
                             <label htmlFor="name">Name</label> <br />
                             <input 
@@ -102,7 +102,7 @@ export default function ProductList() {
                                 onChange={(e) => setName(e.target.value)}
                             />
                         </div>
-                        <div className="two ml-4">
+                        <div className="two">
                             <label htmlFor="name block">Price</label> <br />
                             <input 
                                 type="number" 
@@ -112,7 +112,7 @@ export default function ProductList() {
                             />
                         </div>
                     </div>
-                    <div className="flex flex-wrap">
+                    <div className="flex flex-wrap justify-start gap-2">
                         <div className="one">
                             <label htmlFor="name block">Quantity</label> <br />
                             <input 
@@ -122,7 +122,7 @@ export default function ProductList() {
                                 onChange={(e) => setQuantity(e.target.value)}
                             />
                         </div>
-                        <div className="two ml-4">
+                        <div className="two">
                             <label htmlFor="name block">Brand</label> <br />
                             <input 
                                 type="text" 
@@ -140,7 +140,7 @@ export default function ProductList() {
                         value={description} 
                         onChange={(e) => setDescription(e.target.value)}
                     ></textarea>
-                    <div className="flex justify-between">
+                    <div className="flex justify-start gap-2 flex-wrap">
                         <div>
                             <label htmlFor="name block">Count In Stock</label> <br />
                             <input 
