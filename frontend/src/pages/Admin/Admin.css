@@ -29,7 +29,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .larger-screen-size {
+    .large-screen-size {
         display: none;
     }
 }

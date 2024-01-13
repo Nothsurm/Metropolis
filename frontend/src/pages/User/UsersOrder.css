@@ -28,6 +28,6 @@
 
 @media screen and (max-width: 490px) {
     .larger-screen-size {
-        display: none;
+        display: none
     }
 }
