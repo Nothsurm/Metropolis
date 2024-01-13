@@ -39,7 +39,6 @@ export default function Register() {
             try {
                 const res = await register({username, email, password}).unwrap()
                 dispatch(setCredentials({...res}))
-                navigate(redirect)
                 toast.success('User successfully registered');
             } catch (error) {
                 //console.log(error)
