@@ -42,8 +42,8 @@ export default function Register() {
                 navigate(redirect)
                 toast.success('User successfully registered');
             } catch (error) {
-                console.log(error)
-                toast.error(error.data.message)
+                //console.log(error)
+                toast.error(error)
             }
         }
     }

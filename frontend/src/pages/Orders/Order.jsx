@@ -27,53 +27,55 @@ export default function Order() {
 
     useEffect(() => {
         if (!errorPayPal && !loadingPayPal && paypal.clientId) {
-            const loadingPayPalScript = async () => {
-                paypalDispatch({
-                    type: 'resetOptions',
-                    value: {
-                        'client-id': paypal.clientId,
-                        currency: 'USD',
-                    }
-                })
-                paypalDispatch({type: 'setLoadingStatus', value: 'pending'})
+          const loadingPaPalScript = async () => {
+            paypalDispatch({
+              type: "resetOptions",
+              value: {
+                "client-id": paypal.clientId,
+                currency: "USD",
+              },
+            });
+            paypalDispatch({ type: "setLoadingStatus", value: "pending" });
+          };
+    
+          if (order && !order.isPaid) {
+            if (!window.paypal) {
+              loadingPaPalScript();
             }
-
-            if (order && !order.isPaid) {
-                if (!window.paypal) {
-                    loadingPayPalScript();
-                }
-            }
+          }
         }
-    }, [errorPayPal, loadingPayPal, order, paypal, paypalDispatch]);
-
-    function onApprove(data, actions) {
+      }, [errorPayPal, loadingPayPal, order, paypal, paypalDispatch]);
+    
+      function onApprove(data, actions) {
         return actions.order.capture().then(async function (details) {
-            try {
-                await payOrder({orderId, details})
-                refetch()
-                toast.success('Order is paid')
-            } catch (error) {
-                toast.error(error?.data?.message || error.message)
-            }
-        })
-    };
-
-    function createOrder(data, actions) {
-        return actions.order.create({
-            purchase_units: [{amount: {value: order.totalPrice}}]
-        }).then((orderID) => {
-            return orderID
+          try {
+            await payOrder({ orderId, details });
+            refetch();
+            toast.success("Order is paid");
+          } catch (error) {
+            toast.error(error?.data?.message || error.message);
+          }
         });
-    };
-
-    function onError(err) {
-        toast.error(err.message)
-    };
-
-    const deliverHandler = async () => {
-        await deliverOrder(orderId)
-        refetch()
-    }
+      }
+    
+      function createOrder(data, actions) {
+        return actions.order
+          .create({
+            purchase_units: [{ amount: { value: order.totalPrice } }],
+          })
+          .then((orderID) => {
+            return orderID;
+          });
+      }
+    
+      function onError(err) {
+        toast.error(err.message);
+      }
+    
+      const deliverHandler = async () => {
+        await deliverOrder(orderId);
+        refetch();
+      };
 
   return (
     isLoading ? (<Loader />) : error ? (<Message variant='danger'>{error.data.message}</Message>) : (
