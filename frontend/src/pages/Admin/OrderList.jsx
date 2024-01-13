@@ -10,7 +10,7 @@ export default function OrderList() {
   return (
     <>
         {isLoading ? (<Loader />) : error ? (<Message variant='danger'>{error?.data?.message || error.error}</Message>) : (
-            <table className="order-list-container mx-auto mt-28 sm:text-sm">
+            <table className="order-list-container mx-auto mt-28 w-[70%] sm:text-sm">
                 <AdminMenu />
                 <thead className="w-full border">
                     <tr className="mb-[5rem]">

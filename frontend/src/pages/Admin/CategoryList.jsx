@@ -101,7 +101,7 @@ const CategoryList = () => {
   }, [refetch])
 
   return (
-    <div className="ml-[10rem] flex flex-col md:flex-row">
+    <div className="xl:ml-[10rem] mt-20 flex flex-col md:flex-row">
       <AdminMenu />
       <div className="md:w-3/4 p-3">
         <div className="h-12">Manage Categories</div>
