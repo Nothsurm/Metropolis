@@ -27,7 +27,7 @@ export default function Cart() {
     <>
       <div className="container flex justify-around items-start flex-wrap mx-auto mt-20">
         {cartItems.length === 0 ? (
-          <div className="flex flex-col text-center">
+          <div className="flex flex-col text-center mt-20">
             <p>Your cart is empty</p>
             <Link to='/shop' className="font-bold hover:opacity-90"> Go To Shop</Link>
           </div>
