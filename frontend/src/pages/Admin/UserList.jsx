@@ -10,6 +10,7 @@ import {
 } from '../../redux/api/usersApiSlice.js';
 import Message from "../../components/Message.jsx";
 import AdminMenu from "./AdminMenu.jsx";
+import './Admin.css'
 
 export default function UserList() {
     const {data: users, refetch, isLoading, error} = useGetUsersQuery();
@@ -67,7 +68,7 @@ export default function UserList() {
                 {error?.data.message || error.message}
             </Message>
         ) : (
-            <div className="flex flex-col md:flex-row">
+            <div className="flex flex-col md:flex-row userlist-container">
                 <AdminMenu />
                 <table className="w-full md:w-4/5 mx-auto">
                     <thead>

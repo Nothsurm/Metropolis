@@ -41,7 +41,7 @@ export default function HeartIcon({product}) {
         {isFavourite ? (
             <FaHeart className='text-pink-500'/>
         ) : (
-            <FaRegHeart className='text-white'/>
+            <FaRegHeart className='text-pink-500'/>
         )}
     </div>
   )

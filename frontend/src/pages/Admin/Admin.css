@@ -1,0 +1,5 @@
+@media screen and (max-width: 640px) {
+    .userlist-container {
+        font-size: xx-small;
+    }
+}
