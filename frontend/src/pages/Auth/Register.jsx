@@ -6,6 +6,7 @@ import { setCredentials } from "../../redux/features/auth/authSlice.js";
 import { toast } from "react-toastify";
 import { useRegisterMutation } from "../../redux/api/usersApiSlice.js";
 import Image from '../../images/register-image.jpg';
+import './Register.css'
 
 export default function Register() {
     const [username, setUsername] = useState('');
@@ -48,10 +49,10 @@ export default function Register() {
     }
 
   return (
-    <section className="pl-[10rem] flex flex-wrap text-white">
-        <div className="mr-[4rem] mt-[5rem]">
+    <section className="lg:pl-[7rem] sm:pl-[1rem] flex justify-between flex-wrap text-white">
+        <div className="mt-[5rem] lg:w-1/3 sm:w-full register-container">
             <h1 className="text-2xl font-semibold mb-4">Register</h1>
-            <form onSubmit={submitHandler} className="container w-[40rem]">
+            <form onSubmit={submitHandler} className="container w-full">
                 <div className="my-[2rem]">
                     <label htmlFor="name" className="block text-sm font-medium">Name</label>
                     <input 
@@ -106,7 +107,7 @@ export default function Register() {
                 </p>
             </div>
         </div>
-        <img src={Image} alt="colourful-picture" className="h-[57rem] w-[59%] xl:block md:hidden sm:hidden rounded-lg"/>
+        <img src={Image} alt="colourful-picture" className="xl:mt-[0rem] sm:mt-[5rem] register-image-hide xl:h-[55rem] mr-[1rem] w-[59%] lg:block md:hidden sm:hidden rounded-lg"/>
     </section>
   )
 }
