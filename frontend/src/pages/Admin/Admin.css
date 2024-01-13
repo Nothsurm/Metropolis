@@ -2,4 +2,22 @@
     .userlist-container {
         font-size: xx-small;
     }
+    .order-list-container {
+        margin-top: 5rem;
+    }
+    .view-details-button {
+        width: 1rem;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .small-screen-size {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .larger-screen-size {
+        display: none;
+    }
 }
