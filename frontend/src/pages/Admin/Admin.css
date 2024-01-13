@@ -8,6 +8,12 @@
     .view-details-button {
         width: 1rem;
     }
+    .chart-container {
+        display: none;
+    }
+    .dashboard-container {
+        width: 30rem;
+    }
 }
 
 @media screen and (min-width: 769px) {
