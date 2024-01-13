@@ -18,6 +18,9 @@ connectDB();
 
 const port = process.env.VITE_PORT || 5000
 
+const __dirname = path.resolve()
+const __direname = path.resolve()
+
 const app = express()
 
 app.use(express.json())
@@ -34,7 +37,11 @@ app.get('/api/config/paypal', (req, res) => {
     res.send({clientId: process.env.VITE_PAYPAL_CLIENT_ID})
 })
 
-const __dirname = path.resolve()
 app.use('/uploads', express.static(path.join(__dirname + '/uploads')))
+app.use(express.static(path.join(__direname + '/frontend/dist')))
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__direname, 'frontend', 'dist', 'index.html'))
+})
 
 app.listen(port, () => console.log(`Server running on port ${port}`))
