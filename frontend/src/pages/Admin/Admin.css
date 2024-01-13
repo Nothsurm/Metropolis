@@ -17,6 +17,9 @@
     .product-small-screen-size {
         display: none;
     }
+    .product-description-and-image {
+        width: 28rem;
+    }
 }
 
 @media screen and (min-width: 769px) {

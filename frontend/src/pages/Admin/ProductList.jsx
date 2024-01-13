@@ -67,10 +67,10 @@ export default function ProductList() {
     };
 
   return (
-    <div className="container mt-20 xl:mx-[9rem] sm:mx-[0]">
-        <div className="flex flex-col flex-wrap justify-between">
+    <div className="container xl:mt-0 sm:mt-20 xl:mx-[9rem] sm:mx-[0]">
+        <div className="flex flex-col md:flex-row">
             <AdminMenu />
-            <div className="md:full p-3">
+            <div className="p-3">
                 <h2 className="h-12">Create Product</h2>
                 {imageUrl && (
                     <div className="text-center">
@@ -79,7 +79,7 @@ export default function ProductList() {
                 )}
 
                 <div className="mb-3">
-                    <label className="border text-white px-4 block w-full text-center rounded-lg cursor-pointer font-bold py-11">
+                    <label className="border text-white px-4 block w-full text-center rounded-lg cursor-pointer font-bold py-11 product-description-and-image">
                         {image ? image.name : "Upload Image"}
                         <input 
                             type="file" 
@@ -136,7 +136,7 @@ export default function ProductList() {
                     <label htmlFor="" className="my-5">Description</label>
                     <textarea 
                         type='text' 
-                        className="p-2 mb-3 bg-[#101011] rounded-lg w-[95%] text-white" 
+                        className="p-2 mb-3 bg-[#101011] rounded-lg sm:w-[95%] text-white product-description-and-image" 
                         value={description} 
                         onChange={(e) => setDescription(e.target.value)}
                     ></textarea>

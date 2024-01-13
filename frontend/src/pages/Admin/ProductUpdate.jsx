@@ -100,19 +100,19 @@ export default function ProductUpdate() {
     }
 
   return (
-    <div className="container xl:mx-[9rem] sm:mx-[0]">
+    <div className="container xl:mt-0 sm:mt-20 xl:mx-[9rem] sm:mx-[0]">
         <div className="flex flex-col md:flex-row">
             <AdminMenu />
-            <div className="md:w-3/4 p-3">
-                <h2 className="h-12">Create Product</h2>
+            <div className="p-3 w-full">
+                <h2 className="h-12">Update Product</h2>
                 {image && (
                     <div className="text-center">
-                        <img src={image} alt="product" className="block mx-auto max-h-[200px]"/>
+                        <img src={image} alt="product" className="block mx-auto w-[20rem] max-h-[200px]"/>
                     </div>
                 )}
 
-                <div className="mb-3">
-                    <label className="border text-white px-4 block w-full text-center rounded-lg cursor-pointer font-bold py-11">
+                <div className="mb-3 w-full">
+                    <label className="border text-white px-4 block w-full text-center rounded-lg cursor-pointer font-bold py-11 product-description-and-image">
                         {image ? image.name : "Upload Image"}
                         <input 
                             type="file" 
@@ -125,41 +125,41 @@ export default function ProductUpdate() {
                 </div>
 
                 <div className="p-3">
-                    <div className="flex flex-wrap">
+                    <div className="flex flex-wrap justify-start gap-2">
                         <div className="one">
                             <label htmlFor="name">Name</label> <br />
                             <input 
                                 type="text" 
-                                className="p-4 mb-3 w-[30rem] border rounded-lg bg-[#101011] text-white" 
+                                className="p-4 mb-3 w-[28rem] border rounded-lg bg-[#101011] text-white" 
                                 value={name} 
                                 onChange={(e) => setName(e.target.value)}
                             />
                         </div>
-                        <div className="two ml-4">
+                        <div className="two">
                             <label htmlFor="name block">Price</label> <br />
                             <input 
                                 type="number" 
-                                className="p-4 mb-3 w-[30rem] border rounded-lg bg-[#101011] text-white" 
+                                className="p-4 mb-3 w-[28rem] border rounded-lg bg-[#101011] text-white" 
                                 value={price} 
                                 onChange={(e) => setPrice(e.target.value)}
                             />
                         </div>
                     </div>
-                    <div className="flex flex-wrap">
+                    <div className="flex justify-start gap-2 flex-wrap">
                         <div className="one">
                             <label htmlFor="name block">Quantity</label> <br />
                             <input 
                                 type="number" 
-                                className="p-4 mb-3 w-[30rem] border rounded-lg bg-[#101011] text-white" 
+                                className="p-4 mb-3 w-[28rem] border rounded-lg bg-[#101011] text-white" 
                                 value={quantity} 
                                 onChange={(e) => setQuantity(e.target.value)}
                             />
                         </div>
-                        <div className="two ml-4">
+                        <div className="two">
                             <label htmlFor="name block">Brand</label> <br />
                             <input 
                                 type="text" 
-                                className="p-4 mb-3 w-[30rem] border rounded-lg bg-[#101011] text-white" 
+                                className="p-4 mb-3 w-[28rem] border rounded-lg bg-[#101011] text-white" 
                                 value={brand} 
                                 onChange={(e) => setBrand(e.target.value)}
                             />
@@ -169,23 +169,23 @@ export default function ProductUpdate() {
                     <label htmlFor="" className="my-5">Description</label>
                     <textarea 
                         type='text' 
-                        className="p-2 mb-3 bg-[#101011] rounded-lg w-[95%] text-white" 
+                        className="p-2 mb-3 bg-[#101011] rounded-lg sm:w-[95%] text-white product-description-and-image" 
                         value={description} 
                         onChange={(e) => setDescription(e.target.value)}
                     ></textarea>
-                    <div className="flex justify-between">
+                    <div className="flex justify-start gap-2 flex-wrap">
                         <div>
                             <label htmlFor="name block">Count In Stock</label> <br />
                             <input 
                                 type="number" 
-                                className="p-4 mb-3 w-[30rem] border rounded-lg bg-[#101011] text-white" 
+                                className="p-4 mb-3 w-[28rem] border rounded-lg bg-[#101011] text-white" 
                                 value={stock} 
                                 onChange={(e) => setStock(e.target.value)}
                             />
                         </div>
                         <div>
                             <label htmlFor="">Category</label> <br />
-                            <select placeholder='Choose Category' className="p-4 mb-3 w-[30rem] border rounded-lg bg-[#101011] text-white" onChange={(e) => setCategory(e.target.value)}>
+                            <select placeholder='Choose Category' className="p-4 mb-3 w-[28rem] border rounded-lg bg-[#101011] text-white" onChange={(e) => setCategory(e.target.value)}>
                                 {categories?.map((c) => (
                                     <option key={c._id} value={c._id}>
                                         {c.name}
