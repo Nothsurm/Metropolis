@@ -6,6 +6,7 @@ import { setCredentials } from "../../redux/features/auth/authSlice.js";
 import { toast } from "react-toastify";
 import { useRegisterMutation } from "../../redux/api/usersApiSlice.js";
 import Image from '../../images/register-image.jpg';
+import { useGetUsersQuery } from "../../redux/api/usersApiSlice.js";
 import './Register.css'
 
 export default function Register() {
@@ -18,6 +19,8 @@ export default function Register() {
     const navigate = useNavigate();
 
     const [register, {isLoading}] = useRegisterMutation();
+    const {data: users, isLoading: loading} = useGetUsersQuery();
+    console.log(users)
     const {userInfo} = useSelector(state => state.auth);
 
     const {search} = useLocation()
@@ -32,6 +35,12 @@ export default function Register() {
 
     const submitHandler = async (e) => {
         e.preventDefault()
+
+        users.map((user) => {
+            if (email === user.email) {
+                toast.error('Email already exists')
+            }
+        })
 
         if (password != confirmPassword) {
             toast.error('Passwords do not match')
