@@ -53,3 +53,12 @@ Certain priveleges such as creating listings, deleting users and confirming deli
 13. npm i @reduxjs/toolkit
 14. npm i @paypal/react-paypal-js
 ```
+
+> [!WARNING]
+> Any variables such as your mongoDB url and your paypal client ID should be stored in a .env file
+
+##For Deployment
+- Create a build and start script in your root package.json file
+
+##Find a Bug?
+- If you found an issue with this project or would like to submit an improvement, please submit an issue in the issues tab above. If you would like to submit a PR with a fix, reference the issue you fixed
