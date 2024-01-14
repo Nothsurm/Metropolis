@@ -2,6 +2,8 @@
 
 ## A fully functional project written in React for the front-end and Express/Node.js for the back-end
 
+An e-commerce app where the user may browse and filter through products, purchasing a product requires registeration.
+
 This project utilizes React components and states to fetch data from a database created in MongoDB. Data storage and maintainability is done using Redux, CRUD operations are availbale to the User and Admin.
 Certain priveleges such as creating listings, deleting users and confirming deliveries are only availbale to the Admin. This app is scalable and components are utilized in a way to make the code readable and easy to debug. Additional information includes:
 
