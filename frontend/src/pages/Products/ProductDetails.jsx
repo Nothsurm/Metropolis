@@ -46,20 +46,20 @@ export default function ProductDetails() {
     }
 
   return (
-    <>
+    <div className="xl:mt-0 mt-20 mr-4">
         <div>
-            <Link to='/' className="text-white font-semibold hover:underline ml-[10rem]">
+            <Link to='/' className="text-white font-semibold hover:underline xl:ml-[10rem] sm:ml-[1rem]">
                 Go Back
             </Link>
         </div>
         {isLoading ? (<Loader />) : error ? (<Message variant='danger'>{error?.data?.message || error.message}</Message>) : (
             <>
-                <div className="flex flex-wrap relative justify-between mt-[2rem] ml-[10rem]">
+                <div className="flex flex-wrap relative justify-between mt-[2rem] xl:ml-[10rem] sm:ml-[1rem]">
                     <div>
                         <img 
                             src={product.image} 
                             alt={product.name} 
-                            className="w-full xl:w-[40rem] l:w-[35rem] md:w-[30rem] sm:w-[20rem] mr-[8rem]"
+                            className="w-full xl:w-[40rem] l:w-[35rem] md:w-[30rem] sm:w-[20rem]"
                         />
                         <HeartIcon product={product} />
                     </div>
@@ -137,6 +137,6 @@ export default function ProductDetails() {
                 </div>
             </>
         )}
-    </>
+    </div>
   )
 }
