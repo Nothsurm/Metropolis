@@ -11,7 +11,6 @@ import {
     FaStar,
     FaStore,
 } from 'react-icons/fa';
-import './ProductCarousel.css'
 
 export default function ProductCarousel() {
     const {data: products, isLoading, error} = useGetTopProductQuery();
@@ -26,7 +25,7 @@ export default function ProductCarousel() {
         autoplaySpeed: 3000,
     }
   return (
-    <div className="mb-4 xl:block lg:block md:block bg-black rounded-lg" id='product-carousel'>
+    <div className="mb-4 hidden sm:block bg-black rounded-lg">
         {isLoading ? null : error ? (
             <Message variant='danger'>
                 {error?.data?.message || error.message}

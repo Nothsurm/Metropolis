@@ -79,7 +79,7 @@ export default function Order() {
 
   return (
     isLoading ? (<Loader />) : error ? (<Message variant='danger'>{error.data.message}</Message>) : (
-        <div className="container flex flex-col flex-wrap xl:ml-[10rem] sm:ml-[1rem] md:flex-row mt-20">
+        <div className="flex flex-col ml-1 flex-wrap xl:ml-[10rem] sm:ml-[1rem] md:flex-row mt-20">
             <div className="md:w-2/3 pr-4">
                 <div className="border gray-300 mt-5 pb-4 mb-5">
                     {order.orderItems.length === 0 ? (
@@ -126,7 +126,7 @@ export default function Order() {
                 </div>
             </div>
             <div className="md:w-1/3">
-                <div className="mt-5 border-gray-300 pb-4 mb-4">
+                <div className="mt-5 border-gray-300 pb-4 mb-4 pr-2 sm:pr-4">
                     <h2 className="text-xl font-bold mb-2">Shipping</h2>
                     <p className="mb-4 mt-4">
                         <strong className="text-pink-500">Order:</strong> {order._id}

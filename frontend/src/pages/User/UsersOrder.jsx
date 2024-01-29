@@ -2,7 +2,6 @@ import Message from "../../components/Message";
 import Loader from "../../components/Loader";
 import { Link } from "react-router-dom";
 import { useGetMyOrdersQuery } from "../../redux/api/orderApiSlice";
-import './UsersOrder.css'
 
 export default function UsersOrder() {
     const { data: orders, isLoading, error } = useGetMyOrdersQuery()
@@ -14,9 +13,9 @@ export default function UsersOrder() {
                 <thead>
                     <tr>
                         <td className="py-2">IMAGE</td>
-                        <td className="py-2 id-hide">ID</td>
-                        <td className="py-2 date-hide">DATE</td>
-                        <td className="py-2 total-hide">TOTAL</td>
+                        <td className="py-2 invisible sm:visible">ID</td>
+                        <td className="py-2 invisible sm:visible">DATE</td>
+                        <td className="py-2 invisible sm:visible">TOTAL</td>
                         <td className="py-2">PAID</td>
                         <td className="py-2">DELIVERED</td>
                     </tr>
@@ -29,9 +28,9 @@ export default function UsersOrder() {
                                 alt={order.user} 
                                 className="w-[6rem] mb-5"
                             />
-                            <td className="py-2 id-hide">{order._id}</td>
-                            <td className="py-2 date-hide">{order.createdAt.substring(0, 10)}</td>
-                            <td className="py-2 total-hide">$ {order.totalPrice}</td>
+                            <td className="py-2 invisible sm:visible">{order._id}</td>
+                            <td className="py-2 invisible sm:visible">{order.createdAt.substring(0, 10)}</td>
+                            <td className="py-2 invisible sm:visible">$ {order.totalPrice}</td>
 
                             <td className="py-2 larger-screen-size">
                                 {order.isPaid ? (

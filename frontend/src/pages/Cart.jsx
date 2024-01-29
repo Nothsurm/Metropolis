@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { FaTrash } from "react-icons/fa";
 import { addToCart, removeFromCart } from "../redux/features/cart/cartSlice.js";
-import './Cart.css'
 
 export default function Cart() {
   const navigate = useNavigate()
@@ -33,7 +32,7 @@ export default function Cart() {
           </div>
         ) : (
           <>
-            <div className="flex flex-col flex-wrap w-[80%]" id='container-cart'>
+            <div className="flex flex-col flex-wrap w-[95%] sm:w-[80%] mt-10 sm:mt-4">
               <h1 className="text-2xl font-semibold mb-4">Shopping Cart</h1>
               {cartItems.map((item) => (
                 <div key={item._id} className="flex items-center mb-[1rem] pb-2">
@@ -89,7 +88,6 @@ export default function Cart() {
                     </button>
                   </div>
                 </div>
-
             </div>
           </>
         )}

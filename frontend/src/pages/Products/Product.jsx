@@ -1,17 +1,14 @@
 import { Link } from "react-router-dom";
 import HeartIcon from "./HeartIcon";
-import './Product.css'
-
 
 export default function Product({product}) {
   return (
-    <div className="w-[30rem] ml-[2rem] p-3 relative" id='container'>
+    <div className="w-[18rem] sm:w-[30rem] ml-[2rem] p-3 relative">
         <div className="relative">
             <img 
                 src={product.image} 
                 alt={product.name} 
-                className="w-[30rem] rounded"
-                id='image-container'
+                className="w-[18rem] sm:w-[30rem] rounded"
             />
             <HeartIcon product={product}/>
         </div>
