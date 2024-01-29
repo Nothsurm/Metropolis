@@ -1,17 +1,13 @@
 import { useState } from "react";
-import { AiOutlineHome, AiOutlineShopping, AiOutlineLogin, AiOutlineUserAdd, AiOutlineShoppingCart } from 'react-icons/ai';
 import { FaTimes } from 'react-icons/fa';
-import { NavLink } from "react-router-dom";
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import { useLogoutMutation } from "../../redux/api/usersApiSlice.js";
 import { logout } from "../../redux/features/auth/authSlice.js";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import './NavigationResponsive.css';
 
 export default function NavigationResponsive() {
     const { userInfo } = useSelector((state) => state.auth)
-    const { cartItems } = useSelector((state) => state.cart)
     const [dropdownOpen, setDropdownOpen] = useState(false)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     
@@ -41,10 +37,9 @@ export default function NavigationResponsive() {
   return (
     <div 
         style={{zIndex: 999}} 
-        className='w-[100%] min-h-20 fixed xl:hidden sm:flex sm:items-center bg-black'
-        id='navigation-responsive'
+        className='w-[100%] min-h-20 fixed xl:hidden flex items-center bg-black'
     >
-        <div className="flex flex-row justify-around w-[100%] sm:hidden md:flex" id='remove-items'>
+        <div className="flex-row justify-around w-[100%] hidden md:flex" id='remove-items'>
             <Link 
                 to='/' 
                 className="flex items-center hover:text-slate-400"

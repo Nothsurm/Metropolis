@@ -10,7 +10,6 @@ import AdminMenu from './AdminMenu';
 import OrderList from './OrderList';
 import Loader from '../../components/Loader';
 import { FaPerson } from "react-icons/fa6";
-import './Admin.css'
 
 export default function AdminDashboard() {
     const { data: sales, isLoading } = useGetTotalSalesQuery();
@@ -95,7 +94,7 @@ export default function AdminDashboard() {
         <AdminMenu />
         <section className='w-full mt-20'>
             <div className="w-full flex justify-around flex-wrap">
-                <div className="rounded-lg bg-black p-5 w-[20rem] mt-5 dashboard-container">
+                <div className="rounded-lg bg-black p-5 w-[30rem] sm:w-[20rem] mt-5 ">
                     <div className="font-bold rounded-full w-[3rem] bg-pink-500 text-center p-3">
                         $
                     </div>
@@ -104,7 +103,7 @@ export default function AdminDashboard() {
                         $ {isLoading ? <Loader /> : sales.totalSales.toFixed(2)}
                     </h1>
                 </div>
-                <div className="rounded-lg bg-black p-5 sm:w-[20rem] mt-5 dashboard-container">
+                <div className="rounded-lg bg-black p-5 w-[30rem] sm:w-[20rem] mt-5">
                     <div className="font-bold rounded-full w-[3rem] bg-pink-500 text-center p-3">
                         <FaPerson  size={24}/>
                     </div>
@@ -113,7 +112,7 @@ export default function AdminDashboard() {
                         {isLoading ? <Loader /> : customers?.length}
                     </h1>
                 </div>
-                <div className="rounded-lg bg-black p-5 w-[20rem] mt-5 dashboard-container">
+                <div className="rounded-lg bg-black p-5 w-[30rem] sm:w-[20rem] mt-5">
                     <div className="font-bold rounded-full w-[3rem] bg-pink-500 text-center p-3">
                         $
                     </div>
@@ -125,7 +124,7 @@ export default function AdminDashboard() {
 
             </div>
 
-            <div className="max-w-7xl m-20 chart-container">
+            <div className="max-w-7xl m-20 hidden sm:block">
                 <Chart 
                     options={state.options} 
                     series={state.series} 

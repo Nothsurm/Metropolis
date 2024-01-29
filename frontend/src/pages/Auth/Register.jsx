@@ -7,7 +7,6 @@ import { toast } from "react-toastify";
 import { useRegisterMutation } from "../../redux/api/usersApiSlice.js";
 import Image from '../../images/register-image.jpg';
 import { useGetUsersQuery } from "../../redux/api/usersApiSlice.js";
-import './Register.css'
 
 export default function Register() {
     const [username, setUsername] = useState('');
@@ -20,7 +19,6 @@ export default function Register() {
 
     const [register, {isLoading}] = useRegisterMutation();
     const {data: users, isLoading: loading} = useGetUsersQuery();
-    console.log(users)
     const {userInfo} = useSelector(state => state.auth);
 
     const {search} = useLocation()
@@ -58,7 +56,7 @@ export default function Register() {
 
   return (
     <section className="lg:pl-[7rem] sm:pl-[1rem] flex justify-between flex-wrap text-white">
-        <div className="mt-[5rem] lg:w-1/3 sm:w-full register-container">
+        <div className="mt-[5rem] lg:w-1/3 sm:w-full w-[90%] ml-[1rem]">
             <h1 className="text-2xl font-semibold mb-4">Register</h1>
             <form onSubmit={submitHandler} className="container w-full">
                 <div className="my-[2rem]">
@@ -115,7 +113,7 @@ export default function Register() {
                 </p>
             </div>
         </div>
-        <img src={Image} alt="colourful-picture" className="xl:mt-[0rem] sm:mt-[5rem] register-image-hide xl:h-[55rem] mr-[1rem] w-[59%] lg:block md:hidden sm:hidden rounded-lg"/>
+        <img src={Image} alt="colourful-picture" className="xl:mt-[0rem] sm:mt-[5rem] xl:h-[55rem] mr-[1rem] w-[59%] hidden lg:block rounded-lg"/>
     </section>
   )
 }

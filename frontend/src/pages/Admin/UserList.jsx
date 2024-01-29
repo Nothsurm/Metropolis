@@ -10,7 +10,6 @@ import {
 } from '../../redux/api/usersApiSlice.js';
 import Message from "../../components/Message.jsx";
 import AdminMenu from "./AdminMenu.jsx";
-import './Admin.css'
 
 export default function UserList() {
     const {data: users, refetch, isLoading, error} = useGetUsersQuery();
@@ -59,8 +58,8 @@ export default function UserList() {
         }
     }
   return (
-    <div className="p-4 text-white">
-        <h1 className="text-2xl font-semibold mb-4">Users</h1>
+    <div className="p-4 text-white mt-[4rem] xl:mt-0">
+        <h1 className="text-2xl font-semibold mb-4 ml-0 lg:ml-[10rem]">Users</h1>
         {isLoading ? (
             <Loader />
         ) : error ? (
@@ -68,7 +67,7 @@ export default function UserList() {
                 {error?.data.message || error.message}
             </Message>
         ) : (
-            <div className="flex flex-col md:flex-row userlist-container">
+            <div className="flex flex-col md:flex-row text-xs sm:text-base">
                 <AdminMenu />
                 <table className="w-full md:w-4/5 mx-auto">
                     <thead>

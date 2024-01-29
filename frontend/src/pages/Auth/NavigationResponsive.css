@@ -1,9 +1,0 @@
-@media screen and (max-width: 640px) {
-    #navigation-responsive {
-        display: flex;
-        align-items: center;
-    }
-    #remove-items {
-        display: none;
-    }
-}

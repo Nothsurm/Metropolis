@@ -100,19 +100,19 @@ export default function ProductUpdate() {
     }
 
   return (
-    <div className="container xl:mt-0 sm:mt-20 xl:mx-[9rem] sm:mx-[0]">
+    <div className="container xl:mt-0 mt-20 xl:mx-[9rem] sm:mx-[0]">
         <div className="flex flex-col md:flex-row">
             <AdminMenu />
             <div className="p-3 w-full">
                 <h2 className="h-12">Update Product</h2>
                 {image && (
                     <div className="text-center">
-                        <img src={image} alt="product" className="block mx-auto w-[20rem] max-h-[200px]"/>
+                        <img src={image} alt="product" className="block sm:mx-auto w-[20rem] max-h-[200px]"/>
                     </div>
                 )}
 
                 <div className="mb-3 w-full">
-                    <label className="border text-white px-4 block w-full text-center rounded-lg cursor-pointer font-bold py-11 product-description-and-image">
+                    <label className="border text-white px-4 block w-[28rem] sm:w-full text-center rounded-lg cursor-pointer font-bold py-11">
                         {image ? image.name : "Upload Image"}
                         <input 
                             type="file" 
@@ -169,7 +169,7 @@ export default function ProductUpdate() {
                     <label htmlFor="" className="my-5">Description</label>
                     <textarea 
                         type='text' 
-                        className="p-2 mb-3 bg-[#101011] rounded-lg sm:w-[95%] text-white product-description-and-image" 
+                        className="p-2 mb-3 bg-[#101011] rounded-lg w-[28rem] sm:w-[95%] text-white" 
                         value={description} 
                         onChange={(e) => setDescription(e.target.value)}
                     ></textarea>

@@ -6,8 +6,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { useLogoutMutation } from "../../redux/api/usersApiSlice.js";
 import { logout } from "../../redux/features/auth/authSlice.js";
 import { RiArrowDropDownLine } from "react-icons/ri";
-
-import './Navigation.css';
 import FavouritesCount from "../Products/FavouritesCount.jsx";
 
 export default function Navigation() {
@@ -37,8 +35,8 @@ export default function Navigation() {
   return (
     <div 
         style={{zIndex: 999}} 
-        className='xl:flex sm:hidden flex-col justify-between p-4 text-white bg-black w-[4%] h-[100vh] fixed'
-        id="navigation-container"
+        className='xl:flex hidden flex-col justify-between p-4 text-white bg-black w-[4%] hover:w-[15%] transition-all ease-in-out duration-300 overflow-hidden h-[100vh] fixed'
+        id='navigation-container'
     >
         <div className="flex flex-col justify-center space-y-4">
             <Link 

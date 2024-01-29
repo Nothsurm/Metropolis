@@ -3,8 +3,6 @@ import moment from 'moment';
 import { useAllProductsQuery } from "../../redux/api/productApiSlice";
 import AdminMenu from "./AdminMenu";
 import Loader from "../../components/Loader";
-import { useEffect } from "react";
-import './Admin.css'
 
 export default function AllProducts() {
     const {data: products, isLoading, isError} = useAllProductsQuery()
@@ -35,18 +33,18 @@ export default function AllProducts() {
                                 <img 
                                     src={product.image} 
                                     alt={product.name} 
-                                    className="w-[10rem] object-cover"
+                                    className="w-[8rem] sm:w-[10rem] object-cover"
                                 />
                                 <div className="p-4 flex flex-col justify-around">
                                     <div className="flex justify-between">
                                         <h5 className="sm:text-xl font-semibold mb-2">
                                             {product?.name}
                                         </h5>
-                                        <p className="text-gray-400 text-sm product-small-screen-size">
+                                        <p className="text-gray-400 text-sm hidden sm:block">
                                             {moment(product.createAt).format('MMMM Do YYYY')}
                                         </p>
                                     </div>
-                                    <p className="text-gray-400 xl:w-[30rem] text-sm mb-4 product-small-screen-size">
+                                    <p className="text-gray-400 xl:w-[30rem] text-sm mb-4 hidden sm:block">
                                         {product?.description?.substring(0, 160)}...
                                     </p>
                                     <div className="flex justify-between">
@@ -56,7 +54,7 @@ export default function AllProducts() {
                                         >
                                             Update Product
                                         </Link>
-                                        <p className="product-small-screen-size">$ {product?.price}</p>
+                                        <p className="hidden sm:block">$ {product?.price}</p>
                                     </div>
                                 </div>
                             </div>

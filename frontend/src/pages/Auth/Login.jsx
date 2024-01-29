@@ -6,7 +6,6 @@ import { setCredentials } from "../../redux/features/auth/authSlice.js";
 import { toast } from "react-toastify";
 import Loader from "../../components/Loader.jsx";
 import Image from '../../images/login-image.jpg';
-import './Login.css'
 
 export default function Login() {
     const [email, setEmail] = useState('')
@@ -43,7 +42,7 @@ export default function Login() {
   return (
     <div>
         <section className="lg:pl-[7rem] sm:pl-[1rem] flex justify-between flex-wrap text-white">
-            <div className="mt-[5rem] lg:w-1/3 sm:w-full sign-in-container">
+            <div className="mt-[5rem] lg:w-1/3 sm:w-full w-[90%] ml-[1rem]">
                 <h1 className="text-2xl font-semibold mb-4">Sign In</h1>
                 <form onSubmit={submitHandler} className="container w-full">
                     <div className="my-[2rem]">
@@ -85,7 +84,7 @@ export default function Login() {
                     </p>
                 </div>
             </div>
-            <img src={Image} alt="person-on-computer" className="xl:mt-[0rem] sm:mt-[5rem] image-hide xl:h-[55rem] mr-[1rem] w-[59%] lg:block md:hidden sm:hidden rounded-lg"/>
+            <img src={Image} alt="person-on-computer" className="xl:mt-[0rem] sm:mt-[5rem] xl:h-[55rem] mr-[1rem] w-[59%] hidden lg:block rounded-lg"/>
         </section>
     </div>
   )

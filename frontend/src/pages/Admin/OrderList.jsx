@@ -10,14 +10,14 @@ export default function OrderList() {
   return (
     <>
         {isLoading ? (<Loader />) : error ? (<Message variant='danger'>{error?.data?.message || error.error}</Message>) : (
-            <table className="order-list-container mx-auto mt-28 w-[70%] sm:text-sm">
+            <table className="mt-[5rem] mx-auto sm:mt-28 w-[70%] sm:text-sm">
                 <AdminMenu />
                 <thead className="w-full border">
                     <tr className="mb-[5rem]">
                         <th className="text-left pl-1">ITEMS</th>
                         <th className="text-left pl-1">ID</th>
-                        <th className="text-left pl-1 larger-screen-size">USER</th>
-                        <th className="text-left pl-1 larger-screen-size">DATE</th>
+                        <th className="text-left pl-1">USER</th>
+                        <th className="text-left pl-1">DATE</th>
                         <th className="text-left pl-1">TOTAL</th>
                         <th className="text-left pl-1">PAID</th>
                         <th className="text-left pl-1">DELIVERED</th>
@@ -34,11 +34,11 @@ export default function OrderList() {
                                 />
                             </td>
                             <td>{order._id}</td>
-                            <td className="larger-screen-size">
+                            <td>
                                 {order.user ? order.user.username : 'N/A'}
                             </td>
 
-                            <td className="larger-screen-size">
+                            <td>
                                 {order.createdAt ? order.createdAt.substring(0, 10) : 'N/A'}
                             </td>
 

@@ -11,7 +11,6 @@ import {
     useGetPaypalClientIdQuery, 
     usePayOrderMutation 
 } from "../../redux/api/orderApiSlice";
-import './Order.css'
 
 export default function Order() {
     const {id: orderId} = useParams()

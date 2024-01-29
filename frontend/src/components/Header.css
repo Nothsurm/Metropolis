@@ -1,6 +1,0 @@
-@media screen and (max-width: 640px) {
-    #small-products {
-        display: flex;
-        flex-direction: column;
-    }
-}

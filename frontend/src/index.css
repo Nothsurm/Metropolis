@@ -10,3 +10,30 @@ body {
 input {
     background-color: rgb(54, 54, 54);
 }
+
+.nav-item-name {
+    transition: opacity 0.2s ease-in-out;
+}
+
+#navigation-container:hover .nav-item-name {
+    display: block;
+    opacity: 1;
+}
+
+@media screen and (min-width: 769px) {
+    .small-screen-size {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .large-screen-size {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .unit-price-hide {
+        display: none;
+    }
+}
