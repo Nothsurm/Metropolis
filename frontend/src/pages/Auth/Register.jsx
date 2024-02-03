@@ -13,6 +13,7 @@ export default function Register() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState(null)
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -34,6 +35,10 @@ export default function Register() {
     const submitHandler = async (e) => {
         e.preventDefault()
 
+        if (!username || !email || !password || !confirmPassword) {
+            toast.error('Please fill in all the fields')
+        }
+
         users.map((user) => {
             if (email === user.email) {
                 toast.error('Email already exists')
@@ -44,6 +49,7 @@ export default function Register() {
             toast.error('Passwords do not match')
         } else {
             try {
+                setErrorMessage(null)
                 const res = await register({username, email, password}).unwrap()
                 dispatch(setCredentials({...res}))
                 toast.success('User successfully registered');

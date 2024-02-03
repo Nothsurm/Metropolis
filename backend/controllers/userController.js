@@ -7,7 +7,7 @@ const createUser = asyncHandler(async (req, res) => {
     const { username, email, password } = req.body;
     
     if (!username || !email || !password) {
-        throw new Error('Please fill all the input.')
+        throw new Error('Please fill in all the inputs.')
     }
 
     const userExists = await User.findOne({email})
@@ -36,6 +36,10 @@ const createUser = asyncHandler(async (req, res) => {
 
 const loginUser = asyncHandler(async (req, res) => {
     const { email, password } = req.body
+
+    if (!email || !password) {
+        throw new Error('Please fill in all the inputs.')
+    }
 
     const existingUser = await User.findOne({ email })
 
