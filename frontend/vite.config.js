@@ -10,9 +10,6 @@ export default defineConfig({
     NgmiPolyfill(),
     nodePolyfills()
   ],
-  external: [
-    "vite-plugin-node-polyfills/shims/global",
-  ],
   server: {
     proxy: {
       "/api/": "http://localhost:5000",
