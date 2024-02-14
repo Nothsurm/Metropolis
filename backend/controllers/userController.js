@@ -198,7 +198,7 @@ const forgotPassword = asyncHandler(async (req, res) => {
             from: process.env.VITE_EMAIL,
             to: email,
             subject: 'Reset Password',
-            text: "Please click the link below to reset your password, this link will expire in 10 minutes \n\n" +  `https://metropolis-k549.onrender.com/forgotPassword/${token}`
+            text: "Please click the link below to reset your password, this link will expire in 10 minutes \n\n" +  `https://metropolis-k549.onrender.com/resetPassword/${token}`
         };
         
         transporter.sendMail(mailOptions, function(error, info){
