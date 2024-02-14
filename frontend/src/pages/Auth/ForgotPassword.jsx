@@ -1,12 +1,23 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Image from '../../images/forgotPassword-image.jpg'
+import { useForgotPasswordMutation } from '../../redux/api/usersApiSlice'
+import { toast } from 'react-toastify'
 
 export default function ForgotPassword() {
     const [email, setEmail] = useState('')
 
-    const submitHandler = (e) => {
+    const [forgotPassword, {isLoading}] = useForgotPasswordMutation()
+
+    const submitHandler = async (e) => {
         e.preventDefault()
+        try {
+            const res = await forgotPassword({email}).unwrap()
+            toast.success('A Link has been sent to your email address')
+            console.log(res);
+        } catch (error) {
+            toast.error(error.data.message)
+        }
     }
   return (
     <div>
@@ -26,20 +37,12 @@ export default function ForgotPassword() {
                         />                     
                     </div>
                     <button
+                        disabled={isLoading}
                         type='submit'
                         className="bg-pink-500 px-4 py-2 rounded cursor-pointer my=[1rem] hover:bg-pink-600" 
                     >
-                        Send Link
+                        {isLoading ? "Sending..." : "Send Link"}
                     </button>
-                    {/*<button 
-                        disabled={isLoading} 
-                        type="submit" 
-                        className="bg-pink-500 px-4 py-2 rounded cursor-pointer my=[1rem] hover:bg-pink-600 transition-bg ease-in-out duration-200"
-                    >
-                        {isLoading ? "Signing In..." : "Sign In"}
-
-                        {isLoading && <Loader />}
-  </button>*/}
                 </form>
                 <div className="mt-4">  
                     <p>

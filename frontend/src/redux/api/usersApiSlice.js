@@ -63,6 +63,14 @@ export const userApiSlice = apiSlice.injectEndpoints ({
                 body: data,
             }),
             invalidatesTags: ['User']
+        }),
+
+        forgotPassword: builder.mutation({
+            query: data => ({
+                url: `${USERS_URL}/forgotPassword`,
+                method: 'POST',
+                body: data
+            })
         })
     }),
 });
@@ -75,5 +83,6 @@ export const {
     useGetUsersQuery, 
     useDeleteUserMutation, 
     useGetUserDetailsQuery, 
-    useUpdateUserMutation 
+    useUpdateUserMutation,
+    useForgotPasswordMutation
 } = userApiSlice;
