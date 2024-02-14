@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Image from '../../images/forgotPassword-image.jpg'
+import Image from '../../images/login-image.jpg'
 import { useForgotPasswordMutation } from '../../redux/api/usersApiSlice'
 import { toast } from 'react-toastify'
 
