@@ -14,7 +14,7 @@ export default function ForgotPassword() {
         try {
             const res = await forgotPassword({email}).unwrap()
             toast.success('A Link has been sent to your email address')
-            console.log(res);
+            //console.log(res);
         } catch (error) {
             toast.error(error.data.message)
         }

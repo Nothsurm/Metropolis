@@ -217,9 +217,16 @@ const forgotPassword = asyncHandler(async (req, res) => {
 const resetPassword = asyncHandler(async (req, res) => {
     const {password} = req.body
     const {token} = req.params
+    if (!token) {
+        throw new Error('No token')
+    }
+
+    const decoded = await jwt.verify(token, process.env.VITE_JWT_SECRET)
+    if (!decoded) {
+        throw new Error('You are not authorized to change the password')
+    }
 
     try {
-        const decoded = await jwt.verify(token, process.env.VITE_JWT_SECRET)
         const id = decoded.id
         const hashedPassword = await bcrypt.hash(password, 10)
         await User.findByIdAndUpdate({_id: id}, {password: hashedPassword})
@@ -228,8 +235,6 @@ const resetPassword = asyncHandler(async (req, res) => {
         throw new Error('Invalid Token')
     }
 })
-
-
 
 export { 
     createUser, 
