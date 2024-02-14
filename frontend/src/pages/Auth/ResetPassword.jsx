@@ -25,7 +25,7 @@ export default function ResetPassword() {
             setLoading(false)
             return
         } else {
-            Axios.post('https://metropolis-k549.onrender.com//resetPassword/'+token, {
+            Axios.post('https://metropolis-k549.onrender.com/resetPassword/'+token, {
                 password
             }).then(response => {
                 if (response.status) {
