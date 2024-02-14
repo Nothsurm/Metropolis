@@ -33,16 +33,12 @@ import Order from './pages/Orders/Order.jsx';
 import UsersOrder from './pages/User/UsersOrder.jsx';
 import OrderList from './pages/Admin/OrderList.jsx';
 import AdminDashboard from './pages/Admin/AdminDashboard.jsx';
-import ForgotPassword from './pages/Auth/ForgotPassword.jsx';
-import ResetPassword from './pages/Auth/ResetPassword.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
-      <Route path='/forgotPassword' element={<ForgotPassword />} />
-      <Route path='/resetPassword/:token' element={<ResetPassword />} />
       <Route index={true} path='/' element={<Home />} />
       <Route path='/favourite' element={<Favourites />} />
       <Route path='/product/:id' element={<ProductDetails />} />

@@ -79,10 +79,6 @@ export default function Login() {
                 </form>
                 <div className="mt-4">
                     <p>
-                        Forgot your password? {""}
-                        <Link to='/forgotPassword' className="text-pink-500 hover:underline ml-2">Click Here</Link>
-                    </p>
-                    <p className="mt-4">
                         New Customer? {""}
                         <Link to={redirect ? `/register?redirect=${redirect}` : `/register`} className="text-pink-500 hover:underline ml-2">Register</Link>
                     </p>

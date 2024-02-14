@@ -172,69 +172,6 @@ const updateUserById = asyncHandler(async (req, res) => {
     }
 })
 
-const forgotPassword = asyncHandler(async (req, res) => {
-    const {email} = req.body
-    if (!email) {
-        throw new Error("You haven't entered a valid email address")
-    }
-
-    const user = await User.findOne({email})
-    if (!user) {
-        throw new Error("This email address hasn't registered")
-    }
-
-    try {
-        const token = jwt.sign({id: user._id}, process.env.VITE_JWT_SECRET, {expiresIn: '10m'})
-
-        let transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-            user: process.env.VITE_EMAIL,
-            pass: process.env.VITE_NODEMAILER
-            }
-        });
-        
-        let mailOptions = {
-            from: process.env.VITE_EMAIL,
-            to: email,
-            subject: 'Reset Password',
-            text: "Please click the link below to reset your password, this link will expire in 10 minutes \n\n" +  `https://metropolis-k549.onrender.com/resetPassword/${token}`
-        };
-        
-        transporter.sendMail(mailOptions, function(error, info){
-            if (error) {
-                return res.json({ message: 'error sending Email'})
-            } else {
-                return res.json({ success: true, message: 'Email Sent'})
-            }
-        });
-    } catch (err) {
-        console.log(err);
-        throw new Error("Nodemailer isn't working")
-    }
-});
-
-const resetPassword = asyncHandler(async (req, res) => {
-    const {password} = req.body
-    const {token} = req.params
-    if (!token) {
-        throw new Error('No token')
-    }
-
-    const decoded = await jwt.verify(token, process.env.VITE_JWT_SECRET)
-    if (!decoded) {
-        throw new Error('You are not authorized to change the password')
-    }
-
-    try {
-        const id = decoded.id
-        const hashedPassword = await bcrypt.hash(password, 10)
-        await User.findByIdAndUpdate({_id: id}, {password: hashedPassword})
-        return res.json({message: "Updated Password Successfully"})
-    } catch (err) {
-        throw new Error('Invalid Token')
-    }
-})
 
 export { 
     createUser, 
@@ -246,7 +183,5 @@ export {
     deleteUserById, 
     getUserById, 
     updateUserById,
-    forgotPassword,
-    resetPassword,
 };
 
