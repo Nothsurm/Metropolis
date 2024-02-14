@@ -193,15 +193,12 @@ const forgotPassword = asyncHandler(async (req, res) => {
             pass: process.env.VITE_NODEMAILER
             }
         });
-
-        let message = `http://localhost:5173/resetPassword/${token}`
-        let truncatedMessage = message.slice(0, 40) + " ..."
         
         let mailOptions = {
             from: process.env.VITE_EMAIL,
             to: email,
             subject: 'Reset Password',
-            text: "Please click the link below to reset your password, this link will expire in 10 minutes \n\n" +  truncatedMessage
+            text: "Please click the link below to reset your password, this link will expire in 10 minutes \n\n" +  `http://localhost:5173/resetPassword/${token}`
         };
         
         transporter.sendMail(mailOptions, function(error, info){
@@ -215,7 +212,21 @@ const forgotPassword = asyncHandler(async (req, res) => {
         console.log(err);
         throw new Error("Nodemailer isn't working")
     }
+});
 
+const resetPassword = asyncHandler(async (req, res) => {
+    const {password} = req.body
+    const {token} = req.params
+
+    try {
+        const decoded = await jwt.verify(token, process.env.VITE_JWT_SECRET)
+        const id = decoded.id
+        const hashedPassword = await bcrypt.hash(password, 10)
+        await User.findByIdAndUpdate({_id: id}, {password: hashedPassword})
+        return res.json({message: "Updated Password Successfully"})
+    } catch (err) {
+        throw new Error('Invalid Token')
+    }
 })
 
 
@@ -231,5 +242,6 @@ export {
     getUserById, 
     updateUserById,
     forgotPassword,
+    resetPassword,
 };
 
