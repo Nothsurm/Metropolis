@@ -1,5 +1,5 @@
 import express from 'express';
-import { createUser, loginUser, logoutUser, getAllUsers, getCurrentUserProfile, updateCurrentUserProfile, deleteUserById, getUserById, updateUserById } from '../controllers/userController.js';
+import { createUser, loginUser, logoutUser, getAllUsers, getCurrentUserProfile, updateCurrentUserProfile, deleteUserById, getUserById, updateUserById, forgotPassword } from '../controllers/userController.js';
 import { authenticate, authorizedAdmin } from '../middlewares/authMiddleware.js';
 
 const router = express.Router()
@@ -8,6 +8,7 @@ router.route('/').post(createUser).get(getAllUsers)
 
 router.post('/auth', loginUser)
 router.post('/logout', logoutUser)
+router.post('/forgotPassword', forgotPassword)
 
 router.route('/profile').get(authenticate, getCurrentUserProfile).put(authenticate, updateCurrentUserProfile)
 

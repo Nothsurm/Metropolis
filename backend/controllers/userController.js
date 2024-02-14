@@ -2,6 +2,8 @@ import User from '../models/userModels.js';
 import asyncHandler from '../middlewares/asyncHandler.js';
 import bcrypt from 'bcryptjs';
 import createToken from '../utils/createToken.js';
+import jwt from 'jsonwebtoken'
+import nodemailer from 'nodemailer'
 
 const createUser = asyncHandler(async (req, res) => {
     const { username, email, password } = req.body;
@@ -170,6 +172,52 @@ const updateUserById = asyncHandler(async (req, res) => {
     }
 })
 
+const forgotPassword = asyncHandler(async (req, res) => {
+    const {email} = req.body
+    if (!email) {
+        throw new Error("You haven't entered a valid email address")
+    }
+
+    const user = await User.findOne({email})
+    if (!user) {
+        throw new Error("This email address hasn't registered")
+    }
+
+    try {
+        const token = jwt.sign({id: user._id}, process.env.VITE_JWT_SECRET, {expiresIn: '10m'})
+
+        let transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+            user: process.env.VITE_EMAIL,
+            pass: process.env.VITE_NODEMAILER
+            }
+        });
+
+        let message = `http://localhost:5173/resetPassword/${token}`
+        let truncatedMessage = message.slice(0, 40) + " ..."
+        
+        let mailOptions = {
+            from: process.env.VITE_EMAIL,
+            to: email,
+            subject: 'Reset Password',
+            text: "Please click the link below to reset your password, this link will expire in 10 minutes \n\n" +  truncatedMessage
+        };
+        
+        transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+                return res.json({ message: 'error sending Email'})
+            } else {
+                return res.json({ success: true, message: 'Email Sent'})
+            }
+        });
+    } catch (err) {
+        console.log(err);
+        throw new Error("Nodemailer isn't working")
+    }
+
+})
+
 
 
 export { 
@@ -181,6 +229,7 @@ export {
     updateCurrentUserProfile, 
     deleteUserById, 
     getUserById, 
-    updateUserById 
+    updateUserById,
+    forgotPassword,
 };
 
