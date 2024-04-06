@@ -2,6 +2,8 @@
 
 ## A fully functional project written in React for the front-end and Express/Node.js for the back-end
 
+### This website uses a free domain, therefore initial load time may take 30-60 seconds
+
 An e-commerce app where the user may browse and filter through products, purchasing a product requires registeration. The ability to perform CRUD operations on categories, products and users is reserved for admin priveleges.
 
 This project utilizes React components and states to fetch data from a database created in MongoDB. Data storage and maintainability is done using Redux, CRUD operations are availbale to the User and Admin.
